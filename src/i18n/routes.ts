@@ -106,7 +106,7 @@ export function getEquivalentUrl(currentPath: string, targetLang: Lang): string 
   const pageKey = getPageKeyFromPath(currentPath);
   if (!pageKey) {
     // Default to home in target language
-    return routes.home[targetLang];
+    return getRoute('home', targetLang);
   }
   return getRoute(pageKey, targetLang);
 }

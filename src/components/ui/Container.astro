@@ -23,7 +23,7 @@ const {
 } = Astro.props;
 
 // Size configurations
-const sizeStyles = {
+const sizeStyles: Record<NonNullable<Props['size']>, string> = {
   default: 'max-w-container', // 1280px
   narrow: 'max-w-content',    // 720px
   wide: 'max-w-7xl',          // 1280px
@@ -35,9 +35,10 @@ const baseStyles = `
   px-4 sm:px-6 lg:px-8
 `;
 
+const sizeKey = size as NonNullable<Props['size']>;
 const combinedStyles = [
   baseStyles,
-  sizeStyles[size],
+  sizeStyles[sizeKey],
   className,
 ].join(' ').replace(/\s+/g, ' ').trim();
 ---

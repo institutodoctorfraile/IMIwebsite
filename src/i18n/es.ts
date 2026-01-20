@@ -308,6 +308,15 @@ export const es = {
     openMenu: 'Abrir menú',
     closeMenu: 'Cerrar menú',
   },
-} as const;
+};
 
-export type TranslationKeys = typeof es;
+// Type utility to convert literal types to string
+type DeepString<T> = T extends string
+  ? string
+  : T extends readonly (infer U)[]
+    ? DeepString<U>[]
+    : T extends object
+      ? { [K in keyof T]: DeepString<T[K]> }
+      : T;
+
+export type TranslationKeys = DeepString<typeof es>;
