@@ -1,0 +1,53 @@
+---
+/**
+ * Badge Component
+ * Small label for tags, categories, or status indicators
+ */
+
+interface Props {
+  /** Badge variant */
+  variant?: 'default' | 'primary' | 'secondary' | 'outline';
+  /** Badge size */
+  size?: 'sm' | 'md';
+  /** Additional CSS classes */
+  class?: string;
+}
+
+const {
+  variant = 'default',
+  size = 'md',
+  class: className = '',
+} = Astro.props;
+
+// Base styles
+const baseStyles = `
+  inline-flex items-center
+  font-medium
+  rounded-full
+`;
+
+// Variant styles
+const variantStyles = {
+  default: 'bg-gray-100 text-gray-700',
+  primary: 'bg-primary-50 text-primary',
+  secondary: 'bg-primary-100 text-primary-dark',
+  outline: 'bg-transparent border border-current text-primary',
+};
+
+// Size styles
+const sizeStyles = {
+  sm: 'text-caption px-2 py-0.5',
+  md: 'text-body-sm px-3 py-1',
+};
+
+const combinedStyles = [
+  baseStyles,
+  variantStyles[variant],
+  sizeStyles[size],
+  className,
+].join(' ').replace(/\s+/g, ' ').trim();
+---
+
+<span class={combinedStyles}>
+  <slot />
+</span>

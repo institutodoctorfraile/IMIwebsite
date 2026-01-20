@@ -1,0 +1,12 @@
+# Instituto Ginecológico Alicante - robots.txt
+# https://institutoginecologicoalicante.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://institutoginecologicoalicante.com/sitemap-index.xml
+
+# Disallow admin/private areas (if any exist in the future)
+# Disallow: /admin/
+# Disallow: /private/

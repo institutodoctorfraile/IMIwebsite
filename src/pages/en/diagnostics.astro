@@ -1,0 +1,145 @@
+---
+/**
+ * Diagnostics Page - English
+ * Route: /en/diagnostics
+ */
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Container from '../../components/ui/Container.astro';
+import SectionHeading from '../../components/ui/SectionHeading.astro';
+import Card from '../../components/ui/Card.astro';
+import CtaWideCard from '../../components/sections/CtaWideCard.astro';
+import { getTranslations, getRoute } from '../../i18n';
+
+const lang = 'en';
+const t = getTranslations(lang);
+
+// Breadcrumb structured data
+const breadcrumbData = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: t.nav.home,
+      item: `${Astro.site?.toString() || 'https://institutoginecologicoalicante.com'}en/`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: t.diagnostics.title,
+      item: `${Astro.site?.toString() || 'https://institutoginecologicoalicante.com'}en/diagnostics`,
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={t.diagnostics.title}
+  description={t.diagnostics.description}
+  lang={lang}
+  pageKey="diagnostics"
+  structuredData={breadcrumbData}
+>
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary-50 via-white to-white py-16 md:py-24">
+    <Container>
+      <div class="max-w-3xl">
+        <p class="text-primary font-medium text-body-sm uppercase tracking-wider mb-4">
+          {t.diagnostics.hero.eyebrow}
+        </p>
+        <h1 class="text-display-sm md:text-display text-text font-bold mb-6">
+          {t.diagnostics.hero.title}
+        </h1>
+        <p class="text-body-lg text-text-secondary">
+          {t.diagnostics.hero.subtitle}
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Breadcrumb -->
+  <nav aria-label="Breadcrumb" class="bg-gray-50 border-y border-border">
+    <Container>
+      <ol class="flex items-center gap-2 py-3 text-body-sm">
+        <li>
+          <a href={getRoute('home', lang)} class="text-text-secondary hover:text-primary transition-colors">
+            {t.nav.home}
+          </a>
+        </li>
+        <li class="text-text-muted">/</li>
+        <li class="text-text font-medium" aria-current="page">
+          {t.diagnostics.title}
+        </li>
+      </ol>
+    </Container>
+  </nav>
+
+  <!-- Services Section -->
+  <section class="py-section lg:py-section-lg bg-white">
+    <Container>
+      <div class="max-w-3xl mx-auto text-center mb-12 lg:mb-16">
+        <p class="text-body-lg text-text-secondary">
+          {t.diagnostics.services.intro}
+        </p>
+      </div>
+
+      <!-- Services Grid -->
+      <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+        {t.diagnostics.services.list.map((service, index) => (
+          <Card variant="bordered" padding="lg" class="group">
+            <div class="flex gap-5">
+              <!-- Icon -->
+              <div class="flex-shrink-0 w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                <svg class="w-7 h-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              
+              <!-- Content -->
+              <div>
+                <h2 class="text-subheading font-semibold text-text mb-2 group-hover:text-primary transition-colors">
+                  {service.title}
+                </h2>
+                <p class="text-body text-text-secondary">
+                  {service.description}
+                </p>
+              </div>
+            </div>
+          </Card>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- Additional Info -->
+  <section class="py-section bg-gray-50">
+    <Container size="narrow">
+      <div class="text-center">
+        <h2 class="text-heading font-semibold text-text mb-4">
+          State-of-the-art equipment
+        </h2>
+        <p class="text-body text-text-secondary mb-8">
+          Our center features cutting-edge diagnostic technology that allows us to perform precise evaluations and offer reliable diagnoses. Each piece of equipment has been carefully selected to ensure the best results for our patients.
+        </p>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {['HD Ultrasound', 'Digital Colposcope', 'In-house Lab', 'Digital Records'].map((item) => (
+            <div class="text-center">
+              <div class="w-12 h-12 mx-auto mb-3 bg-primary/10 rounded-full flex items-center justify-center">
+                <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <p class="text-body-sm font-medium text-text">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- CTA -->
+  <CtaWideCard lang={lang} />
+</BaseLayout>

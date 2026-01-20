@@ -1,0 +1,194 @@
+---
+/**
+ * BaseLayout
+ * Main layout with complete SEO, accessibility, and structured data
+ */
+
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+import { 
+  type Lang, 
+  defaultLang,
+  getTranslations,
+  getAlternateRoutes,
+  getHreflang,
+  getOgLocale,
+  getPageKeyFromPath,
+} from '../i18n';
+
+interface Props {
+  /** Page title - will be appended with site name */
+  title: string;
+  /** Meta description for SEO */
+  description: string;
+  /** Language of the page */
+  lang?: Lang;
+  /** Page key for i18n route mapping */
+  pageKey?: string;
+  /** Canonical URL override (auto-generated if not provided) */
+  canonical?: string;
+  /** Open Graph image URL */
+  ogImage?: string;
+  /** Open Graph type */
+  ogType?: 'website' | 'article';
+  /** Robots directive */
+  robots?: string;
+  /** JSON-LD structured data */
+  structuredData?: object | object[];
+}
+
+const {
+  title,
+  description,
+  lang = defaultLang,
+  pageKey,
+  canonical,
+  ogImage = '/og-default.jpg', // TODO: Add default OG image
+  ogType = 'website',
+  robots = 'index, follow',
+  structuredData,
+} = Astro.props;
+
+const t = getTranslations(lang);
+const siteName = t.meta.siteName;
+const fullTitle = `${title} | ${siteName}`;
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://institutoginecologicoalicante.com';
+const currentPath = Astro.url.pathname;
+const canonicalUrl = canonical || `${siteUrl}${currentPath}`;
+
+// Get alternate language URLs for hreflang
+const detectedPageKey = pageKey || getPageKeyFromPath(currentPath);
+const alternateUrls = detectedPageKey 
+  ? getAlternateRoutes(detectedPageKey).map(({ lang: l, url }) => ({
+      hreflang: getHreflang(l),
+      href: `${siteUrl}${url}`,
+    }))
+  : [];
+
+// Default structured data for the medical business
+const defaultStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalBusiness',
+  '@id': `${siteUrl}/#organization`,
+  name: 'Instituto Ginecológico Alicante',
+  alternateName: 'IGA',
+  description: t.meta.siteDescription,
+  url: siteUrl,
+  telephone: '+34 XXX XXX XXX', // TODO: Add real phone
+  email: 'info@institutoginecologicoalicante.com',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Calle [Nombre], [Número]', // TODO: Add real address
+    addressLocality: 'Alicante',
+    addressRegion: 'Comunidad Valenciana',
+    postalCode: '03001',
+    addressCountry: 'ES',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: '38.3452', // TODO: Add real coordinates
+    longitude: '-0.4810',
+  },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    opens: '09:00',
+    closes: '20:00',
+  },
+  priceRange: '$$',
+  image: `${siteUrl}/images/clinic.jpg`, // TODO: Add real image
+  sameAs: [
+    // TODO: Add social media URLs
+  ],
+  medicalSpecialty: [
+    'http://schema.org/Gynecologic',
+  ],
+};
+
+// Combine structured data
+const allStructuredData = structuredData 
+  ? Array.isArray(structuredData) 
+    ? [defaultStructuredData, ...structuredData]
+    : [defaultStructuredData, structuredData]
+  : [defaultStructuredData];
+---
+
+<!doctype html>
+<html lang={lang} class="scroll-smooth">
+  <head>
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Basic Meta -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO Meta -->
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <link rel="canonical" href={canonicalUrl} />
+    
+    <!-- Hreflang alternates -->
+    {alternateUrls.map(({ hreflang, href }) => (
+      <link rel="alternate" hreflang={hreflang} href={href} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={`${siteUrl}/`} />
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content={getOgLocale(lang)} />
+    <meta property="og:image" content={ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`} />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#3D949B" />
+    
+    <!-- Structured Data -->
+    {allStructuredData.map((data) => (
+      <script type="application/ld+json" set:html={JSON.stringify(data)} />
+    ))}
+    
+    <!-- Additional head content from pages -->
+    <slot name="head" />
+  </head>
+  
+  <body class="min-h-screen flex flex-col bg-bg text-text antialiased">
+    <!-- Skip to main content (Accessibility) -->
+    <a href="#main-content" class="skip-link">
+      Skip to main content
+    </a>
+    
+    <!-- Header -->
+    <Header lang={lang} currentPath={currentPath} />
+    
+    <!-- Main Content -->
+    <main id="main-content" class="flex-1">
+      <slot />
+    </main>
+    
+    <!-- Footer -->
+    <Footer lang={lang} />
+    
+    <!-- Scripts slot for page-specific scripts -->
+    <slot name="scripts" />
+  </body>
+</html>

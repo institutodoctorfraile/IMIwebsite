@@ -1,0 +1,368 @@
+---
+/**
+ * Header Component
+ * Main navigation with dropdown, language selector, and CTA
+ * Sticky header with minimal CLS impact
+ */
+
+import Container from './ui/Container.astro';
+import Button from './ui/Button.astro';
+import { 
+  type Lang, 
+  languages, 
+  getRoute, 
+  getEquivalentUrl,
+  treatmentAnchors,
+  getTranslations 
+} from '../i18n';
+
+interface Props {
+  lang: Lang;
+  currentPath: string;
+}
+
+const { lang, currentPath } = Astro.props;
+const t = getTranslations(lang);
+
+// Navigation items
+const navItems = [
+  { label: t.nav.home, href: getRoute('home', lang) },
+  { 
+    label: t.nav.regenerativeGynecology, 
+    href: getRoute('regenerative', lang),
+    dropdown: [
+      { label: t.treatments.rf, href: getRoute('regenerative', lang) + treatmentAnchors.rf },
+      { label: t.treatments.laserCo2, href: getRoute('regenerative', lang) + treatmentAnchors.laserCo2 },
+      { label: t.treatments.emsella, href: getRoute('regenerative', lang) + treatmentAnchors.emsella },
+      { label: t.treatments.photobiomodulation, href: getRoute('regenerative', lang) + treatmentAnchors.photobiomodulation },
+      { label: t.treatments.magnetotherapy, href: getRoute('regenerative', lang) + treatmentAnchors.magnetotherapy },
+      { label: t.treatments.bioidenticalHt, href: getRoute('regenerative', lang) + treatmentAnchors.bioidenticalHt },
+    ]
+  },
+  { label: t.nav.diagnostics, href: getRoute('diagnostics', lang) },
+];
+
+// Language options for selector
+const langOptions = Object.entries(languages).map(([code, info]) => ({
+  code: code as Lang,
+  name: info.nativeName,
+  flag: info.flag,
+  href: getEquivalentUrl(currentPath, code as Lang),
+  active: code === lang,
+}));
+---
+
+<header class="sticky top-0 z-[1000] bg-white border-b border-border/50">
+  <Container>
+    <nav class="flex items-center justify-between h-16 md:h-20 relative" aria-label="Main navigation">
+      <!-- Logo -->
+      <a href={getRoute('home', lang)} class="flex items-center gap-2 text-text hover:text-primary transition-colors">
+        <span class="text-xl md:text-2xl font-bold">IGA</span>
+        <span class="hidden sm:block text-body-sm text-text-secondary">
+          Instituto Ginecológico<br class="hidden lg:block" /> Alicante
+        </span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden lg:flex items-center gap-8 relative z-[1001]">
+        <ul class="flex items-center gap-6 list-none pl-0">
+          {navItems.map((item) => (
+            <li>
+              {item.dropdown ? (
+                <div class="dropdown-container relative">
+                  <button 
+                    class="dropdown-trigger flex items-center gap-1 text-body text-text hover:text-primary transition-colors py-2"
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                  >
+                    {item.label}
+                    <svg class="w-4 h-4 transition-transform dropdown-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <!-- Dropdown -->
+                  <div class="dropdown-menu absolute top-full left-0 pt-2 opacity-0 invisible transition-all duration-150 z-[999]">
+                    <ul class="bg-white rounded-lg shadow-lg border border-border/50 py-2 min-w-[220px] list-none pl-0">
+                      {item.dropdown.map((subItem) => (
+                        <li>
+                          <a 
+                            href={subItem.href}
+                            class="block px-4 py-2 text-body-sm text-text hover:text-primary hover:bg-primary-50 transition-colors"
+                          >
+                            {subItem.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ) : (
+                <a 
+                  href={item.href}
+                  class={`text-body transition-colors py-2 ${
+                    currentPath === item.href ? 'text-primary font-medium' : 'text-text hover:text-primary'
+                  }`}
+                >
+                  {item.label}
+                </a>
+              )}
+            </li>
+          ))}
+        </ul>
+
+        <!-- Language Selector -->
+        <div class="relative dropdown-container">
+          <button 
+            class="dropdown-trigger flex items-center gap-1.5 text-body-sm text-text-secondary hover:text-text transition-colors py-2"
+            aria-label={t.nav.languageSelector}
+            aria-expanded="false"
+            aria-haspopup="true"
+          >
+            <span>{languages[lang].flag}</span>
+            <span class="uppercase">{lang}</span>
+            <svg class="w-3 h-3 transition-transform dropdown-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="dropdown-menu absolute top-full right-0 pt-2 opacity-0 invisible transition-all duration-150 z-[999]">
+            <ul class="bg-white rounded-lg shadow-lg border border-border/50 py-1 min-w-[120px] list-none pl-0">
+              {langOptions.map((option) => (
+                <li>
+                  <a 
+                    href={option.href}
+                    class={`flex items-center gap-2 px-3 py-1.5 text-body-sm transition-colors ${
+                      option.active 
+                        ? 'text-primary bg-primary-50' 
+                        : 'text-text hover:text-primary hover:bg-primary-50'
+                    }`}
+                    aria-current={option.active ? 'page' : undefined}
+                  >
+                    <span>{option.flag}</span>
+                    <span>{option.name}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <!-- CTA Button -->
+        <Button href={getRoute('appointment', lang)} variant="primary" size="md">
+          {t.nav.appointment}
+        </Button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button 
+        class="lg:hidden p-2 -mr-2 text-text hover:text-primary transition-colors"
+        aria-label={t.common.openMenu}
+        data-mobile-menu-toggle
+      >
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </nav>
+  </Container>
+
+  <!-- Mobile Menu -->
+  <div 
+    class="lg:hidden fixed inset-0 z-50 bg-white transform translate-x-full transition-transform duration-normal"
+    data-mobile-menu
+    aria-hidden="true"
+  >
+    <div class="flex flex-col h-full">
+      <!-- Mobile Header -->
+      <div class="flex items-center justify-between h-16 px-4 border-b border-border">
+        <span class="text-xl font-bold text-text">IGA</span>
+        <button 
+          class="p-2 -mr-2 text-text hover:text-primary transition-colors"
+          aria-label={t.common.closeMenu}
+          data-mobile-menu-close
+        >
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <nav class="flex-1 overflow-y-auto px-4 py-6">
+        <ul class="space-y-1 list-none pl-0">
+          {navItems.map((item) => (
+            <li>
+              {item.dropdown ? (
+                <details class="group">
+                  <summary class="flex items-center justify-between py-3 text-body font-medium text-text cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                    {item.label}
+                    <svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <ul class="pl-4 pb-2 space-y-1 list-none">
+                    {item.dropdown.map((subItem) => (
+                      <li>
+                        <a 
+                          href={subItem.href}
+                          class="block py-2 text-body-sm text-text-secondary hover:text-primary transition-colors"
+                        >
+                          {subItem.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              ) : (
+                <a 
+                  href={item.href}
+                  class={`block py-3 text-body font-medium transition-colors ${
+                    currentPath === item.href ? 'text-primary' : 'text-text hover:text-primary'
+                  }`}
+                >
+                  {item.label}
+                </a>
+              )}
+            </li>
+          ))}
+        </ul>
+
+        <!-- Mobile Language Selector -->
+        <div class="mt-6 pt-6 border-t border-border">
+          <p class="text-body-sm text-text-secondary mb-3">{t.nav.languageSelector}</p>
+          <div class="flex gap-2">
+            {langOptions.map((option) => (
+              <a 
+                href={option.href}
+                class={`flex items-center gap-1.5 px-3 py-2 rounded-md text-body-sm transition-colors ${
+                  option.active 
+                    ? 'bg-primary text-white' 
+                    : 'bg-gray-100 text-text hover:bg-primary-50'
+                }`}
+              >
+                <span>{option.flag}</span>
+                <span class="uppercase">{option.code}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </nav>
+
+      <!-- Mobile CTA -->
+      <div class="p-4 border-t border-border">
+        <Button href={getRoute('appointment', lang)} variant="primary" fullWidth>
+          {t.nav.appointment}
+        </Button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Mobile menu functionality
+  const menuToggle = document.querySelector('[data-mobile-menu-toggle]');
+  const menuClose = document.querySelector('[data-mobile-menu-close]');
+  const mobileMenu = document.querySelector('[data-mobile-menu]');
+
+  function openMenu() {
+    mobileMenu?.classList.remove('translate-x-full');
+    mobileMenu?.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    mobileMenu?.classList.add('translate-x-full');
+    mobileMenu?.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  menuToggle?.addEventListener('click', openMenu);
+  menuClose?.addEventListener('click', closeMenu);
+
+  // Close on link click
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenu?.getAttribute('aria-hidden') === 'false') {
+      closeMenu();
+    }
+  });
+
+  // Desktop dropdown functionality
+  const dropdownContainers = document.querySelectorAll('.dropdown-container');
+
+  dropdownContainers.forEach(container => {
+    const trigger = container.querySelector('.dropdown-trigger') as HTMLElement | null;
+    const menu = container.querySelector('.dropdown-menu') as HTMLElement | null;
+    const arrow = container.querySelector('.dropdown-arrow') as HTMLElement | null;
+
+    if (!trigger || !menu) return;
+
+    // Store references to avoid null checks in closures
+    const triggerEl = trigger;
+    const menuEl = menu;
+    const arrowEl = arrow;
+
+    let isOpen = false;
+
+    function openDropdown() {
+      isOpen = true;
+      menuEl.classList.remove('opacity-0', 'invisible');
+      menuEl.classList.add('opacity-100', 'visible');
+      arrowEl?.classList.add('rotate-180');
+      triggerEl.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeDropdown() {
+      isOpen = false;
+      menuEl.classList.add('opacity-0', 'invisible');
+      menuEl.classList.remove('opacity-100', 'visible');
+      arrowEl?.classList.remove('rotate-180');
+      triggerEl.setAttribute('aria-expanded', 'false');
+    }
+
+    // Toggle on click
+    triggerEl.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (isOpen) {
+        closeDropdown();
+      } else {
+        // Close other dropdowns first
+        dropdownContainers.forEach(other => {
+          if (other !== container) {
+            const otherMenu = other.querySelector('.dropdown-menu');
+            const otherArrow = other.querySelector('.dropdown-arrow');
+            const otherTrigger = other.querySelector('.dropdown-trigger');
+            otherMenu?.classList.add('opacity-0', 'invisible');
+            otherMenu?.classList.remove('opacity-100', 'visible');
+            otherArrow?.classList.remove('rotate-180');
+            otherTrigger?.setAttribute('aria-expanded', 'false');
+          }
+        });
+        openDropdown();
+      }
+    });
+
+    // Also open on hover for desktop
+    container.addEventListener('mouseenter', openDropdown);
+    container.addEventListener('mouseleave', closeDropdown);
+  });
+
+  // Close dropdowns when clicking outside
+  document.addEventListener('click', (e) => {
+    dropdownContainers.forEach(container => {
+      if (!container.contains(e.target as Node)) {
+        const menu = container.querySelector('.dropdown-menu');
+        const arrow = container.querySelector('.dropdown-arrow');
+        const trigger = container.querySelector('.dropdown-trigger');
+        menu?.classList.add('opacity-0', 'invisible');
+        menu?.classList.remove('opacity-100', 'visible');
+        arrow?.classList.remove('rotate-180');
+        trigger?.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+</script>

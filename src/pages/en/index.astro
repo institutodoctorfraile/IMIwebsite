@@ -1,0 +1,43 @@
+---
+/**
+ * Home Page - English
+ * Route: /en/
+ */
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/sections/Hero.astro';
+import WhatIsRegenerative from '../../components/sections/WhatIsRegenerative.astro';
+import DoctorSection from '../../components/sections/DoctorSection.astro';
+import TreatmentsGrid from '../../components/sections/TreatmentsGrid.astro';
+import TeamSection from '../../components/sections/TeamSection.astro';
+import CtaWideCard from '../../components/sections/CtaWideCard.astro';
+import { getTranslations } from '../../i18n';
+
+const lang = 'en';
+const t = getTranslations(lang);
+
+// Structured data for home page
+const homeStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: t.home.title,
+  description: t.home.description,
+  url: `${Astro.site?.toString() || 'https://institutoginecologicoalicante.com'}en/`,
+  inLanguage: 'en-US',
+};
+---
+
+<BaseLayout
+  title={t.home.title}
+  description={t.home.description}
+  lang={lang}
+  pageKey="home"
+  structuredData={homeStructuredData}
+>
+  <Hero lang={lang} />
+  <WhatIsRegenerative lang={lang} />
+  <DoctorSection lang={lang} />
+  <TreatmentsGrid lang={lang} />
+  <TeamSection lang={lang} />
+  <CtaWideCard lang={lang} />
+</BaseLayout>

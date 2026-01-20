@@ -1,0 +1,119 @@
+---
+/**
+ * Button Component
+ * Reusable button with multiple variants and sizes
+ * Supports both <button> and <a> elements
+ */
+
+interface Props {
+  /** Button variant */
+  variant?: 'primary' | 'secondary' | 'ghost' | 'outline';
+  /** Button size */
+  size?: 'sm' | 'md' | 'lg';
+  /** If provided, renders as <a> instead of <button> */
+  href?: string;
+  /** For links: open in new tab */
+  external?: boolean;
+  /** Button type (only for button element) */
+  type?: 'button' | 'submit' | 'reset';
+  /** Disabled state */
+  disabled?: boolean;
+  /** Full width */
+  fullWidth?: boolean;
+  /** Additional CSS classes */
+  class?: string;
+  /** Aria label for accessibility */
+  'aria-label'?: string;
+}
+
+const {
+  variant = 'primary',
+  size = 'md',
+  href,
+  external = false,
+  type = 'button',
+  disabled = false,
+  fullWidth = false,
+  class: className = '',
+  'aria-label': ariaLabel,
+} = Astro.props;
+
+// Base styles
+const baseStyles = `
+  inline-flex items-center justify-center
+  font-medium
+  rounded-button
+  transition-all duration-fast
+  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2
+  disabled:opacity-50 disabled:cursor-not-allowed
+  select-none
+`;
+
+// Variant styles
+const variantStyles = {
+  primary: `
+    bg-primary text-white
+    hover:bg-primary-dark
+    active:bg-primary-700
+    shadow-button hover:shadow-md
+  `,
+  secondary: `
+    bg-primary-50 text-primary
+    hover:bg-primary-100
+    active:bg-primary-200
+  `,
+  ghost: `
+    bg-transparent text-primary
+    hover:bg-primary-50
+    active:bg-primary-100
+  `,
+  outline: `
+    bg-transparent text-primary
+    border-2 border-primary
+    hover:bg-primary hover:text-white
+    active:bg-primary-dark
+  `,
+};
+
+// Size styles
+const sizeStyles = {
+  sm: 'text-body-sm px-3 py-1.5 gap-1.5',
+  md: 'text-body px-5 py-2.5 gap-2',
+  lg: 'text-body-lg px-7 py-3 gap-2.5',
+};
+
+// Combine all styles
+const combinedStyles = [
+  baseStyles,
+  variantStyles[variant],
+  sizeStyles[size],
+  fullWidth ? 'w-full' : '',
+  className,
+].join(' ').replace(/\s+/g, ' ').trim();
+
+// External link attributes
+const externalAttrs = external ? {
+  target: '_blank',
+  rel: 'noopener noreferrer',
+} : {};
+---
+
+{href ? (
+  <a
+    href={href}
+    class={combinedStyles}
+    aria-label={ariaLabel}
+    {...externalAttrs}
+  >
+    <slot />
+  </a>
+) : (
+  <button
+    type={type}
+    class={combinedStyles}
+    disabled={disabled}
+    aria-label={ariaLabel}
+  >
+    <slot />
+  </button>
+)}

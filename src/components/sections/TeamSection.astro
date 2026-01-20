@@ -1,0 +1,64 @@
+---
+/**
+ * Team Section
+ * Showcases the medical and support team
+ */
+
+import Container from '../ui/Container.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import { type Lang, getTranslations } from '../../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getTranslations(lang);
+---
+
+<section id="equipo" class="py-section lg:py-section-lg bg-white">
+  <Container>
+    <!-- Header -->
+    <div class="text-center mb-12 lg:mb-16">
+      <SectionHeading
+        eyebrow={t.home.team.eyebrow}
+        title={t.home.team.title}
+        description={t.home.team.description}
+        level={2}
+        align="center"
+      />
+    </div>
+
+    <!-- Team Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {t.home.team.members.map((member, index) => (
+        <div class="text-center group">
+          <!-- Avatar placeholder -->
+          <div class="relative w-40 h-40 mx-auto mb-6">
+            <div class="w-full h-full bg-gradient-to-br from-primary-50 to-primary-100 rounded-full overflow-hidden">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <svg class="w-16 h-16 text-primary/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </div>
+            </div>
+            
+            <!-- Decorative ring on hover -->
+            <div class="absolute inset-0 rounded-full border-2 border-primary/0 group-hover:border-primary/20 transition-colors scale-110"></div>
+          </div>
+          
+          <!-- Info -->
+          <h3 class="text-subheading font-semibold text-text mb-1">
+            {member.name}
+          </h3>
+          <p class="text-body-sm text-primary font-medium mb-3">
+            {member.role}
+          </p>
+          <p class="text-body-sm text-text-secondary max-w-xs mx-auto">
+            {member.bio}
+          </p>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>

@@ -1,0 +1,274 @@
+/*
+ * Instituto Ginecológico Alicante - Global Styles
+ * ================================================
+ * This file contains CSS custom properties, font imports, and base styles.
+ * Tailwind utilities are extended in tailwind.config.mjs
+ */
+
+/* ==========================================
+   Font Import - Inter via Google Fonts
+   ========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ==========================================
+   CSS Custom Properties (Design Tokens)
+   ========================================== */
+:root {
+  /* Brand Colors */
+  --color-primary: #3D949B;
+  --color-primary-light: #47A7AF;
+  --color-primary-dark: #31767C;
+  --color-primary-50: #E8F4F5;
+  --color-primary-100: #D1E9EB;
+  
+  /* Neutrals */
+  --color-text: #000000;
+  --color-text-secondary: #4B5563;
+  --color-text-muted: #6B7280;
+  --color-bg: #FFFFFF;
+  --color-bg-subtle: #F9FAFB;
+  --color-border: #E5E7EB;
+  
+  /* Semantic Colors */
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  
+  /* Typography */
+  --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+  
+  /* Z-index scale */
+  --z-dropdown: 50;
+  --z-sticky: 100;
+  --z-modal: 200;
+  --z-toast: 300;
+}
+
+/* ==========================================
+   Tailwind Directives
+   ========================================== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================
+   Base Styles (Tailwind @layer base)
+   ========================================== */
+@layer base {
+  /* Document */
+  html {
+    @apply scroll-smooth antialiased;
+    font-family: var(--font-family);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body {
+    @apply bg-bg text-text leading-relaxed;
+    font-family: var(--font-family);
+  }
+  
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight text-text;
+  }
+  
+  h1 {
+    @apply text-display-lg md:text-display;
+  }
+  
+  h2 {
+    @apply text-display-sm md:text-display-sm;
+  }
+  
+  h3 {
+    @apply text-heading;
+  }
+  
+  h4 {
+    @apply text-subheading font-medium;
+  }
+  
+  p {
+    @apply text-body leading-relaxed;
+  }
+  
+  /* Links */
+  a {
+    @apply text-primary transition-colors duration-fast;
+  }
+  
+  a:hover {
+    @apply text-primary-dark;
+  }
+  
+  /* Focus States (Accessibility) */
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-bg;
+  }
+  
+  /* Remove default focus outline, we use focus-visible instead */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+  
+  /* Selection */
+  ::selection {
+    @apply bg-primary/20 text-text;
+  }
+  
+  /* Lists */
+  ul, ol {
+    @apply pl-5;
+  }
+  
+  ul {
+    @apply list-disc;
+  }
+  
+  ol {
+    @apply list-decimal;
+  }
+  
+  li {
+    @apply my-1;
+  }
+  
+  /* Forms */
+  input, textarea, select {
+    @apply border border-border rounded-md px-4 py-2 text-body;
+    @apply transition-colors duration-fast;
+    @apply focus:border-primary focus:ring-1 focus:ring-primary;
+  }
+  
+  input::placeholder, textarea::placeholder {
+    @apply text-text-muted;
+  }
+  
+  label {
+    @apply block text-body-sm font-medium text-text mb-1;
+  }
+  
+  /* Tables */
+  table {
+    @apply w-full border-collapse;
+  }
+  
+  th, td {
+    @apply border border-border px-4 py-2 text-left;
+  }
+  
+  th {
+    @apply bg-bg-subtle font-semibold;
+  }
+  
+  /* Images */
+  img {
+    @apply max-w-full h-auto;
+  }
+  
+  /* Horizontal Rule */
+  hr {
+    @apply border-border my-8;
+  }
+}
+
+/* ==========================================
+   Component Styles (Tailwind @layer components)
+   ========================================== */
+@layer components {
+  /* Prose-like content styling */
+  .prose {
+    @apply max-w-content;
+  }
+  
+  .prose p {
+    @apply mb-4;
+  }
+  
+  .prose h2 {
+    @apply mt-12 mb-4;
+  }
+  
+  .prose h3 {
+    @apply mt-8 mb-3;
+  }
+  
+  .prose ul, .prose ol {
+    @apply mb-4;
+  }
+  
+  /* Skip to content link (Accessibility) */
+  .skip-link {
+    @apply absolute -top-full left-4 z-50 bg-primary text-white px-4 py-2 rounded-b-md;
+    @apply focus:top-0 transition-all duration-fast;
+  }
+}
+
+/* ==========================================
+   Utility Styles (Tailwind @layer utilities)
+   ========================================== */
+@layer utilities {
+  /* Text balance for headings */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Gradient text */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-dark;
+  }
+}
+
+/* ==========================================
+   Print Styles
+   ========================================== */
+@media print {
+  body {
+    @apply text-black bg-white;
+  }
+  
+  nav, footer, .no-print {
+    display: none !important;
+  }
+  
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+}

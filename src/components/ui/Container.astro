@@ -1,0 +1,47 @@
+---
+/**
+ * Container Component
+ * Provides consistent max-width and padding for content
+ */
+
+interface Props {
+  /** Container size variant */
+  size?: 'default' | 'narrow' | 'wide' | 'full';
+  /** HTML element to render */
+  as?: 'div' | 'section' | 'article' | 'main' | 'aside';
+  /** Additional CSS classes */
+  class?: string;
+  /** ID attribute */
+  id?: string;
+}
+
+const {
+  size = 'default',
+  as: Element = 'div',
+  class: className = '',
+  id,
+} = Astro.props;
+
+// Size configurations
+const sizeStyles = {
+  default: 'max-w-container', // 1280px
+  narrow: 'max-w-content',    // 720px
+  wide: 'max-w-7xl',          // 1280px
+  full: 'max-w-none',
+};
+
+const baseStyles = `
+  w-full mx-auto
+  px-4 sm:px-6 lg:px-8
+`;
+
+const combinedStyles = [
+  baseStyles,
+  sizeStyles[size],
+  className,
+].join(' ').replace(/\s+/g, ' ').trim();
+---
+
+<Element class={combinedStyles} id={id}>
+  <slot />
+</Element>

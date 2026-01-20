@@ -1,0 +1,24 @@
+{
+  "name": "instituto-ginecologico-alicante",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Website for Instituto Ginecológico Alicante - Regenerative Gynecology Clinic",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/tailwind": "^5.1.3",
+    "astro": "^5.16.11",
+    "tailwindcss": "^3.4.15",
+    "typescript": "^5.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1"
+  }
+}

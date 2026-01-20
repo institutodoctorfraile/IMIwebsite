@@ -1,0 +1,90 @@
+---
+/**
+ * Card Component
+ * Flexible card container with optional link wrapper
+ */
+
+interface Props {
+  /** Card variant */
+  variant?: 'default' | 'elevated' | 'bordered' | 'ghost';
+  /** If provided, the entire card becomes a link */
+  href?: string;
+  /** Padding size */
+  padding?: 'none' | 'sm' | 'md' | 'lg';
+  /** Additional CSS classes */
+  class?: string;
+  /** ID attribute */
+  id?: string;
+}
+
+const {
+  variant = 'default',
+  href,
+  padding = 'md',
+  class: className = '',
+  id,
+} = Astro.props;
+
+// Base styles
+const baseStyles = `
+  block
+  rounded-card
+  transition-all duration-normal
+`;
+
+// Variant styles
+const variantStyles = {
+  default: `
+    bg-white
+    shadow-card
+    hover:shadow-card-hover
+  `,
+  elevated: `
+    bg-white
+    shadow-lg
+    hover:shadow-xl
+    hover:-translate-y-1
+  `,
+  bordered: `
+    bg-white
+    border border-border
+    hover:border-primary/30
+  `,
+  ghost: `
+    bg-transparent
+    hover:bg-bg-subtle
+  `,
+};
+
+// Padding styles
+const paddingStyles = {
+  none: '',
+  sm: 'p-4',
+  md: 'p-6',
+  lg: 'p-8',
+};
+
+// Link-specific styles
+const linkStyles = href ? `
+  cursor-pointer
+  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2
+` : '';
+
+const combinedStyles = [
+  baseStyles,
+  variantStyles[variant],
+  paddingStyles[padding],
+  linkStyles,
+  className,
+].join(' ').replace(/\s+/g, ' ').trim();
+---
+
+{href ? (
+  <a href={href} class={combinedStyles} id={id}>
+    <slot />
+  </a>
+) : (
+  <div class={combinedStyles} id={id}>
+    <slot />
+  </div>
+)}

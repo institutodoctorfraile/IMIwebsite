@@ -1,0 +1,76 @@
+---
+/**
+ * SectionHeading Component
+ * Consistent heading structure with optional eyebrow and description
+ */
+
+interface Props {
+  /** Small text above the title */
+  eyebrow?: string;
+  /** Main heading text */
+  title: string;
+  /** Optional description below the title */
+  description?: string;
+  /** Heading level for the title (h1-h6) */
+  level?: 1 | 2 | 3 | 4 | 5 | 6;
+  /** Text alignment */
+  align?: 'left' | 'center' | 'right';
+  /** Additional CSS classes */
+  class?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  description,
+  level = 2,
+  align = 'left',
+  class: className = '',
+} = Astro.props;
+
+// Dynamic heading tag
+const HeadingTag = `h${level}` as 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+
+// Alignment styles
+const alignStyles = {
+  left: 'text-left',
+  center: 'text-center mx-auto',
+  right: 'text-right ml-auto',
+};
+
+// Heading size based on level
+const headingSizes = {
+  1: 'text-display-lg md:text-display',
+  2: 'text-display-sm md:text-display-sm',
+  3: 'text-heading',
+  4: 'text-subheading',
+  5: 'text-body-lg font-semibold',
+  6: 'text-body font-semibold',
+};
+
+const containerStyles = [
+  'max-w-3xl',
+  alignStyles[align],
+  className,
+].join(' ').replace(/\s+/g, ' ').trim();
+---
+
+<div class={containerStyles}>
+  {eyebrow && (
+    <p class="text-primary font-medium text-body-sm uppercase tracking-wider mb-3">
+      {eyebrow}
+    </p>
+  )}
+  
+  <HeadingTag class={`${headingSizes[level]} text-text text-balance mb-4`}>
+    {title}
+  </HeadingTag>
+  
+  {description && (
+    <p class="text-body-lg text-text-secondary leading-relaxed">
+      {description}
+    </p>
+  )}
+  
+  <slot />
+</div>

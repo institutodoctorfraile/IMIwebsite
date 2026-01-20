@@ -1,0 +1,94 @@
+---
+/**
+ * Doctor Section
+ * Highlights the main specialist
+ */
+
+import Container from '../ui/Container.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import { type Lang, getTranslations } from '../../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getTranslations(lang);
+---
+
+<section id="doctor" class="py-section lg:py-section-lg bg-gray-50">
+  <Container>
+    <div class="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+      <!-- Heading - First on mobile, part of content area on desktop -->
+      <div class="lg:hidden w-full">
+        <SectionHeading
+          eyebrow={t.home.doctor.eyebrow}
+          title={t.home.doctor.title}
+          description={t.home.doctor.subtitle}
+          level={2}
+          align="center"
+        />
+      </div>
+
+      <!-- Doctor Image -->
+      <div class="relative order-2 lg:order-1">
+        <div class="max-w-md mx-auto lg:mx-0">
+          <div class="relative">
+            <!-- Teal background shape -->
+            <div class="absolute top-0 right-0 w-[85%] h-[85%] bg-primary rounded-2xl"></div>
+            <!-- Doctor image -->
+            <img 
+              src="/images/Dr_Fraile.png" 
+              alt="Dr. Rafael Fraile - Especialista en Ginecología Regenerativa"
+              class="relative z-10 w-full h-auto"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        
+        <!-- Experience badge -->
+        <div class="absolute bottom-4 right-0 lg:right-auto lg:-left-6 lg:bottom-12 bg-white rounded-xl shadow-lg p-4 z-20">
+          <div class="text-center">
+            <span class="block text-display-sm font-bold text-primary">+15</span>
+            <span class="block text-body-sm text-text-secondary">años de<br />experiencia</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="order-3 lg:order-2">
+        <!-- Heading - Only visible on desktop -->
+        <div class="hidden lg:block">
+          <SectionHeading
+            eyebrow={t.home.doctor.eyebrow}
+            title={t.home.doctor.title}
+            description={t.home.doctor.subtitle}
+            level={2}
+            align="left"
+          />
+        </div>
+        
+        <p class="mt-6 text-body text-text-secondary leading-relaxed">
+          {t.home.doctor.bio}
+        </p>
+
+        <!-- Credentials -->
+        <div class="mt-8">
+          <h3 class="text-subheading font-semibold text-text mb-4">Formación y credenciales</h3>
+          <ul class="space-y-3">
+            {t.home.doctor.credentials.map((credential) => (
+              <li class="flex items-start gap-3">
+                <span class="flex-shrink-0 w-5 h-5 mt-0.5 text-primary">
+                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </span>
+                <span class="text-body text-text-secondary">{credential}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>
