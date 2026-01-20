@@ -56,9 +56,9 @@ export const en: TranslationKeys = {
     // Doctor section
     doctor: {
       eyebrow: 'Specialist',
-      title: 'Dr. [Doctor Name]',
+      title: 'Dr. Fraile',
       subtitle: 'Specialist in Regenerative Gynecology',
-      bio: 'With over [X] years of experience in gynecology and obstetrics, Dr. [Name] has dedicated his career to researching and applying regenerative treatments. Trained at Spain\'s leading medical institutions with international specialization in regenerative medicine.',
+      bio: 'With over [X] years of experience in gynecology and obstetrics, Dr. Fraile has dedicated his career to researching and applying regenerative treatments. Trained at Spain\'s leading medical institutions with international specialization in regenerative medicine.',
       credentials: [
         'Medical Degree from [Name] University',
         'Specialist in Gynecology and Obstetrics',

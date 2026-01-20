@@ -55,9 +55,9 @@ export const es = {
     // Doctor section
     doctor: {
       eyebrow: 'Especialista',
-      title: 'Dr. [Nombre del Doctor]',
+      title: 'Dr. Fraile',
       subtitle: 'Especialista en Ginecología Regenerativa',
-      bio: 'Con más de [X] años de experiencia en ginecología y obstetricia, el Dr. [Nombre] ha dedicado su carrera a la investigación y aplicación de tratamientos regenerativos. Formado en las principales instituciones médicas de España y con especialización internacional en medicina regenerativa.',
+      bio: 'Con más de [X] años de experiencia en ginecología y obstetricia, el Dr. Fraile ha dedicado su carrera a la investigación y aplicación de tratamientos regenerativos. Formado en las principales instituciones médicas de España y con especialización internacional en medicina regenerativa.',
       credentials: [
         'Licenciado en Medicina por la Universidad [Nombre]',
         'Especialista en Ginecología y Obstetricia',
