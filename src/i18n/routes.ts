@@ -43,11 +43,6 @@ export const routes: Record<string, Record<Lang, string>> = {
     en: '/en/patient-care',
     ru: '/ru/patient-care',
   },
-  appointment: {
-    es: '/cita',
-    en: '/en/appointment',
-    ru: '/ru/appointment',
-  },
   treatmentLaserCo2: {
     es: '/ginecologia-regenerativa/laser-co2',
     en: '/en/regenerative-gynecology/laser-co2',
