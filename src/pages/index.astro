@@ -6,13 +6,10 @@
 
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/sections/Hero.astro';
-import ServicesBlock from '../components/sections/ServicesBlock.astro';
-import ProcessSteps from '../components/sections/ProcessSteps.astro';
+import WhatIsRegenerative from '../components/sections/WhatIsRegenerative.astro';
 import DoctorSection from '../components/sections/DoctorSection.astro';
-import TrustPoints from '../components/sections/TrustPoints.astro';
-import TestimonialsBlock from '../components/sections/TestimonialsBlock.astro';
-import EasyProcess from '../components/sections/EasyProcess.astro';
-import FaqAccordion from '../components/sections/FaqAccordion.astro';
+import TreatmentsGrid from '../components/sections/TreatmentsGrid.astro';
+import TeamSection from '../components/sections/TeamSection.astro';
 import CtaWideCard from '../components/sections/CtaWideCard.astro';
 import { getTranslations } from '../i18n';
 
@@ -38,12 +35,9 @@ const homeStructuredData = {
   structuredData={homeStructuredData}
 >
   <Hero lang={lang} />
-  <ServicesBlock lang={lang} />
-  <ProcessSteps lang={lang} />
+  <TreatmentsGrid lang={lang} />
   <DoctorSection lang={lang} />
-  <TrustPoints lang={lang} />
-  <TestimonialsBlock lang={lang} />
-  <EasyProcess lang={lang} />
-  <FaqAccordion lang={lang} />
+  <WhatIsRegenerative lang={lang} />
+  <TeamSection lang={lang} />
   <CtaWideCard lang={lang} />
 </BaseLayout>
