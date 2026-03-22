@@ -28,28 +28,80 @@ export const routes: Record<string, Record<Lang, string>> = {
     en: '/en/regenerative-gynecology',
     ru: '/ru/regenerative-gynecology',
   },
-  diagnostics: {
-    es: '/diagnosticos',
-    en: '/en/diagnostics',
-    ru: '/ru/diagnostics',
+  obstetrics: {
+    es: '/obstetricia',
+    en: '/en/obstetrics',
+    ru: '/ru/obstetrics',
+  },
+  gynecology: {
+    es: '/ginecologia',
+    en: '/en/gynecology',
+    ru: '/ru/gynecology',
+  },
+  patientCare: {
+    es: '/atencion-al-paciente',
+    en: '/en/patient-care',
+    ru: '/ru/patient-care',
   },
   appointment: {
     es: '/cita',
     en: '/en/appointment',
     ru: '/ru/appointment',
   },
+  treatmentLaserCo2: {
+    es: '/ginecologia-regenerativa/laser-co2',
+    en: '/en/regenerative-gynecology/laser-co2',
+    ru: '/ru/regenerative-gynecology/laser-co2',
+  },
+  treatmentRf: {
+    es: '/ginecologia-regenerativa/radiofrecuencia',
+    en: '/en/regenerative-gynecology/radiofrequency',
+    ru: '/ru/regenerative-gynecology/radiofrequency',
+  },
+  treatmentEmsella: {
+    es: '/ginecologia-regenerativa/emsella',
+    en: '/en/regenerative-gynecology/emsella',
+    ru: '/ru/regenerative-gynecology/emsella',
+  },
+  treatmentPrp: {
+    es: '/ginecologia-regenerativa/prp',
+    en: '/en/regenerative-gynecology/prp',
+    ru: '/ru/regenerative-gynecology/prp',
+  },
+  treatmentBioidenticalHt: {
+    es: '/ginecologia-regenerativa/terapia-hormonal-bioidentica',
+    en: '/en/regenerative-gynecology/bioidentical-hormone-therapy',
+    ru: '/ru/regenerative-gynecology/bioidentical-hormone-therapy',
+  },
+  treatmentMagnetotherapy: {
+    es: '/ginecologia-regenerativa/magnetoterapia',
+    en: '/en/regenerative-gynecology/magnetotherapy',
+    ru: '/ru/regenerative-gynecology/magnetotherapy',
+  },
 };
 
 /**
- * Treatment anchors - consistent across all languages
+ * Treatment route keys mapped to treatment i18n keys
+ */
+export const treatmentRouteKeys = {
+  laserCo2: 'treatmentLaserCo2',
+  rf: 'treatmentRf',
+  emsella: 'treatmentEmsella',
+  prp: 'treatmentPrp',
+  bioidenticalHt: 'treatmentBioidenticalHt',
+  magnetotherapy: 'treatmentMagnetotherapy',
+} as const;
+
+/**
+ * Treatment anchors - kept for backwards compat, now points to subpages
  */
 export const treatmentAnchors = {
-  rf: '#rf',
   laserCo2: '#laser-co2',
+  rf: '#rf',
   emsella: '#emsella',
-  photobiomodulation: '#fotobiomodulacion',
-  magnetotherapy: '#magnetoterapia',
+  prp: '#prp',
   bioidenticalHt: '#th-bioidentica',
+  magnetotherapy: '#magnetoterapia',
 } as const;
 
 /**

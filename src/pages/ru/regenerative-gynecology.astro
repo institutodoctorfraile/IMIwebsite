@@ -16,12 +16,12 @@ const t = getTranslations(lang);
 
 // Treatment sections data
 const treatments = [
-  { key: 'rf', id: 'rf' },
-  { key: 'laserCo2', id: 'laser-co2' },
-  { key: 'emsella', id: 'emsella' },
-  { key: 'photobiomodulation', id: 'fotobiomodulacion' },
-  { key: 'magnetotherapy', id: 'magnetoterapia' },
-  { key: 'bioidenticalHt', id: 'th-bioidentica' },
+  { key: 'laserCo2', id: 'laser-co2', routeKey: 'treatmentLaserCo2' },
+  { key: 'rf', id: 'rf', routeKey: 'treatmentRf' },
+  { key: 'emsella', id: 'emsella', routeKey: 'treatmentEmsella' },
+  { key: 'prp', id: 'prp', routeKey: 'treatmentPrp' },
+  { key: 'bioidenticalHt', id: 'th-bioidentica', routeKey: 'treatmentBioidenticalHt' },
+  { key: 'magnetotherapy', id: 'magnetoterapia', routeKey: 'treatmentMagnetotherapy' },
 ];
 
 // Breadcrumb structured data
@@ -72,7 +72,7 @@ const breadcrumbData = {
   <!-- Breadcrumb -->
   <nav aria-label="Breadcrumb" class="bg-gray-50 border-y border-border">
     <Container>
-      <ol class="flex items-center gap-2 py-3 text-body-sm">
+      <ol class="flex items-center gap-2 py-3 text-body-sm list-none pl-0">
         <li>
           <a href={getRoute('home', lang)} class="text-text-secondary hover:text-primary transition-colors">
             {t.nav.home}
@@ -126,7 +126,7 @@ const breadcrumbData = {
               </div>
 
               <div class="mt-8">
-                <Button href={getRoute('appointment', lang)} variant="primary">
+                <Button href={getRoute(treatment.routeKey, lang)} variant="primary">
                   {t.nav.appointment}
                 </Button>
               </div>
@@ -163,7 +163,7 @@ const breadcrumbData = {
           const section = t.regenerative.sections[treatment.key as keyof typeof t.regenerative.sections];
           return (
             <a 
-              href={`#${treatment.id}`}
+              href={getRoute(treatment.routeKey, lang)}
               class="px-4 py-2 bg-gray-100 hover:bg-primary-50 text-body-sm text-text hover:text-primary rounded-full transition-colors"
             >
               {section.title}

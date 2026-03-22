@@ -1,0 +1,76 @@
+---
+/**
+ * Trust Points Section
+ * Title, subtitle, and a list of trust points with check/shield icons.
+ * Two-column layout on desktop.
+ */
+
+import Container from '../ui/Container.astro';
+import Button from '../ui/Button.astro';
+import { type Lang, getTranslations, getRoute } from '../../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getTranslations(lang);
+---
+
+<section id="confianza" class="py-section lg:py-section-lg bg-gray-50">
+  <Container>
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+      <!-- Left column: Heading + subtitle -->
+      <div>
+        <p class="text-primary font-medium text-body-sm uppercase tracking-wider mb-3">
+          {t.home.trust.eyebrow}
+        </p>
+        <h2 class="text-display-sm md:text-display-sm text-text text-balance mb-4">
+          {t.home.trust.title}
+        </h2>
+        <p class="text-body-lg text-text-secondary leading-relaxed">
+          {t.home.trust.subtitle}
+        </p>
+      </div>
+
+      <!-- Right column: Trust points -->
+      <div class="space-y-5">
+        {t.home.trust.points.map((point: { title: string; description: string } | string) => (
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mt-0.5">
+              <svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <div class="pt-1">
+              {typeof point === 'string' ? (
+                <p class="text-body text-text leading-relaxed">
+                  {point}
+                </p>
+              ) : (
+                <>
+                  <p class="text-body font-semibold text-text mb-1">
+                    {point.title}
+                  </p>
+                  <p class="text-body-sm text-text-secondary leading-relaxed">
+                    {point.description}
+                  </p>
+                </>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- CTAs -->
+    <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
+      <Button href={getRoute('home', lang) + '#doctor'} variant="outline" size="lg">
+        {t.home.trust.ctaDoctor}
+      </Button>
+      <Button href={getRoute('appointment', lang)} variant="primary" size="lg">
+        {t.home.trust.ctaAppointment}
+      </Button>
+    </div>
+  </Container>
+</section>

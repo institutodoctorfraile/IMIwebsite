@@ -1,0 +1,153 @@
+---
+/**
+ * Obstetrics Page - Spanish
+ * Route: /en/obstetrics
+ */
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Container from '../../components/ui/Container.astro';
+import SectionHeading from '../../components/ui/SectionHeading.astro';
+import Button from '../../components/ui/Button.astro';
+import FaqAccordion from '../../components/sections/FaqAccordion.astro';
+import ProcessSteps from '../../components/sections/ProcessSteps.astro';
+import CtaWideCard from '../../components/sections/CtaWideCard.astro';
+import { getTranslations, getRoute } from '../../i18n';
+
+const lang = 'en';
+const t = getTranslations(lang);
+
+// Breadcrumb structured data
+const breadcrumbData = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: t.nav.home,
+      item: Astro.site?.toString() || 'https://institutoginecologicoalicante.com',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: t.obstetrics.title,
+      item: `${Astro.site?.toString() || 'https://institutoginecologicoalicante.com'}obstetricia`,
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={t.obstetrics.title}
+  description={t.obstetrics.description}
+  lang={lang}
+  pageKey="obstetrics"
+  structuredData={breadcrumbData}
+>
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary-50 via-white to-white py-16 md:py-24">
+    <Container>
+      <div class="max-w-3xl">
+        <p class="text-primary font-medium text-body-sm uppercase tracking-wider mb-4">
+          {t.obstetrics.hero.eyebrow}
+        </p>
+        <h1 class="text-display-sm md:text-display text-text font-bold mb-6">
+          {t.obstetrics.hero.title}
+        </h1>
+        <p class="text-body-lg text-text-secondary">
+          {t.obstetrics.hero.subtitle}
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Breadcrumb -->
+  <nav aria-label="Breadcrumb" class="bg-gray-50 border-y border-border">
+    <Container>
+      <ol class="flex items-center gap-2 py-3 text-body-sm list-none pl-0">
+        <li>
+          <a href={getRoute('home', lang)} class="text-text-secondary hover:text-primary transition-colors">
+            {t.nav.home}
+          </a>
+        </li>
+        <li class="text-text-muted">/</li>
+        <li class="text-text font-medium" aria-current="page">
+          {t.obstetrics.title}
+        </li>
+      </ol>
+    </Container>
+  </nav>
+
+  <!-- Service Sections -->
+  {t.obstetrics.services.map((service: { id: string; title: string; description: string; items: string[] }, index: number) => {
+    const isEven = index % 2 === 0;
+
+    return (
+      <section id={service.id} class={`py-section lg:py-section-lg ${isEven ? 'bg-white' : 'bg-gray-50'}`}>
+        <Container>
+          <div class={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-center ${!isEven ? 'lg:flex-row-reverse' : ''}`}>
+            <!-- Content -->
+            <div class={!isEven ? 'lg:order-2' : ''}>
+              <SectionHeading
+                title={service.title}
+                description={service.description}
+                level={2}
+                align="left"
+              />
+
+              {service.items.length > 0 && (
+                <div class="mt-8">
+                  <ul class="space-y-3">
+                    {service.items.map((item: string) => (
+                      <li class="flex items-start gap-3">
+                        <span class="flex-shrink-0 w-5 h-5 mt-0.5 text-primary">
+                          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                          </svg>
+                        </span>
+                        <span class="text-body text-text-secondary">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              <div class="mt-8">
+                <Button href={getRoute('appointment', lang)} variant="primary">
+                  {t.nav.appointment}
+                </Button>
+              </div>
+            </div>
+
+            <!-- Image placeholder -->
+            <div class={`relative ${!isEven ? 'lg:order-1' : ''}`}>
+              <div class="aspect-[4/3] bg-gradient-to-br from-primary-50 to-primary-100/50 rounded-2xl overflow-hidden">
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="text-center p-8">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-primary/20 rounded-full flex items-center justify-center">
+                      <svg class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <p class="text-body-sm text-text-muted">
+                      [Imagen: {service.title}]
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+    );
+  })}
+
+  <!-- Process Steps -->
+  <ProcessSteps lang={lang} />
+
+  <!-- FAQs -->
+  <FaqAccordion lang={lang} faqs={t.obstetrics.faqs.items} />
+
+  <!-- CTA -->
+  <CtaWideCard lang={lang} />
+</BaseLayout>

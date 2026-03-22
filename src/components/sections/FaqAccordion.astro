@@ -1,0 +1,85 @@
+---
+/**
+ * FAQ Accordion Section
+ * Accordion FAQ using native HTML details/summary elements.
+ * CSS-only chevron rotation and smooth styling.
+ */
+
+import Container from '../ui/Container.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import { type Lang, getTranslations } from '../../i18n';
+
+interface Props {
+  lang: Lang;
+  faqs?: Array<{ question: string; answer: string }>;
+}
+
+const { lang, faqs: faqsProp } = Astro.props;
+const t = getTranslations(lang);
+const faqs = faqsProp ?? t.home.faqs.items;
+---
+
+<section id="faqs" class="py-section lg:py-section-lg bg-white">
+  <Container size="narrow">
+    <!-- Header -->
+    <div class="text-center mb-12 lg:mb-16">
+      <SectionHeading
+        eyebrow={t.home.faqs.eyebrow}
+        title={t.home.faqs.title}
+        level={2}
+        align="center"
+      />
+    </div>
+
+    <!-- FAQ Items -->
+    <div class="divide-y divide-border">
+      {faqs.map((faq: { question: string; answer: string }) => (
+        <details class="faq-item group">
+          <summary class="flex items-center justify-between gap-4 py-5 cursor-pointer list-none text-left select-none">
+            <span class="text-body font-medium text-text group-hover:text-primary transition-colors">
+              {faq.question}
+            </span>
+            <svg
+              class="faq-chevron w-5 h-5 flex-shrink-0 text-text-muted transition-transform duration-200"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <div class="pb-5 pr-12">
+            <p class="text-body-sm text-text-secondary leading-relaxed">
+              {faq.answer}
+            </p>
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <!-- WhatsApp note -->
+    <div class="mt-10 text-center">
+      <p class="text-body-sm text-text-muted italic">
+        {t.home.faqs.whatsappNote}
+      </p>
+    </div>
+  </Container>
+</section>
+
+<style>
+  /* Remove default marker */
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::marker {
+    display: none;
+    content: '';
+  }
+
+  /* Rotate chevron when open */
+  .faq-item[open] .faq-chevron {
+    transform: rotate(180deg);
+  }
+</style>

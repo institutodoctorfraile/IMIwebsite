@@ -1,0 +1,69 @@
+---
+/**
+ * Process Steps Section
+ * Three-step horizontal process with connecting lines.
+ * Mobile: vertical stacked. Desktop: horizontal with dashed lines.
+ */
+
+import Container from '../ui/Container.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import { type Lang, getTranslations } from '../../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getTranslations(lang);
+---
+
+<section id="proceso" class="py-section lg:py-section-lg bg-white">
+  <Container>
+    <!-- Header -->
+    <div class="text-center mb-12 lg:mb-16">
+      <SectionHeading
+        eyebrow={t.home.process.eyebrow}
+        title={t.home.process.title}
+        level={2}
+        align="center"
+      />
+    </div>
+
+    <!-- Steps -->
+    <div class="relative max-w-4xl mx-auto">
+      <!-- Connecting line (desktop only) -->
+      <div class="hidden lg:block absolute top-10 left-[calc(16.667%+1.25rem)] right-[calc(16.667%+1.25rem)] h-px border-t-2 border-dashed border-primary/30" aria-hidden="true"></div>
+
+      <div class="grid lg:grid-cols-3 gap-10 lg:gap-8">
+        {t.home.process.steps.map((step: { number: string; title: string; description: string }, index: number) => (
+          <div class="relative flex flex-col items-center text-center">
+            <!-- Connecting line (mobile only) -->
+            {index < t.home.process.steps.length - 1 && (
+              <div class="lg:hidden absolute top-20 left-1/2 -translate-x-1/2 w-px h-10 border-l-2 border-dashed border-primary/30" aria-hidden="true"></div>
+            )}
+
+            <!-- Number circle -->
+            <div class="relative z-10 w-20 h-20 mb-6 bg-white border-2 border-primary rounded-full flex items-center justify-center shadow-sm">
+              <span class="text-display-sm font-bold text-primary">{step.number}</span>
+            </div>
+
+            <!-- Content -->
+            <h3 class="text-subheading font-semibold text-text mb-3">
+              {step.title}
+            </h3>
+            <p class="text-body-sm text-text-secondary leading-relaxed max-w-xs">
+              {step.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Note -->
+    <div class="mt-12 text-center">
+      <p class="text-body-sm text-text-muted italic max-w-2xl mx-auto">
+        {t.home.process.note}
+      </p>
+    </div>
+  </Container>
+</section>

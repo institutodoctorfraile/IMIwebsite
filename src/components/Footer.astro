@@ -24,7 +24,9 @@ const currentYear = new Date().getFullYear();
 const quickLinks = [
   { label: t.nav.home, href: getRoute('home', lang) },
   { label: t.nav.regenerativeGynecology, href: getRoute('regenerative', lang) },
-  { label: t.nav.diagnostics, href: getRoute('diagnostics', lang) },
+  { label: t.nav.obstetrics, href: getRoute('obstetrics', lang) },
+  { label: t.nav.gynecology, href: getRoute('gynecology', lang) },
+  { label: t.nav.patientCare, href: getRoute('patientCare', lang) },
   { label: t.nav.appointment, href: getRoute('appointment', lang) },
 ];
 
@@ -84,7 +86,7 @@ const legalLinks = [
         <!-- Quick Links -->
         <div>
           <h3 class="text-body font-semibold text-text mb-4">{t.footer.quickLinks}</h3>
-          <ul class="space-y-3">
+          <ul class="space-y-3 list-none pl-0">
             {quickLinks.map((link) => (
               <li>
                 <a 
@@ -142,7 +144,7 @@ const legalLinks = [
         <p class="text-body-sm text-text-secondary text-center md:text-left">
           {formatTranslation(t.footer.copyright, { year: currentYear.toString() })}
         </p>
-        <ul class="flex flex-wrap justify-center gap-4 md:gap-6">
+        <ul class="flex flex-wrap justify-center gap-4 md:gap-6 list-none pl-0">
           {legalLinks.map((link) => (
             <li>
               <a 

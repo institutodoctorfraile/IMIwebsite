@@ -9,19 +9,20 @@ import Container from '../components/ui/Container.astro';
 import SectionHeading from '../components/ui/SectionHeading.astro';
 import Button from '../components/ui/Button.astro';
 import CtaWideCard from '../components/sections/CtaWideCard.astro';
-import { getTranslations, getRoute, treatmentAnchors } from '../i18n';
+import FaqAccordion from '../components/sections/FaqAccordion.astro';
+import { getTranslations, getRoute } from '../i18n';
 
 const lang = 'es';
 const t = getTranslations(lang);
 
-// Treatment sections data
+// Treatment sections data with route keys for subpages
 const treatments = [
-  { key: 'rf', id: 'rf' },
-  { key: 'laserCo2', id: 'laser-co2' },
-  { key: 'emsella', id: 'emsella' },
-  { key: 'photobiomodulation', id: 'fotobiomodulacion' },
-  { key: 'magnetotherapy', id: 'magnetoterapia' },
-  { key: 'bioidenticalHt', id: 'th-bioidentica' },
+  { key: 'laserCo2', id: 'laser-co2', routeKey: 'treatmentLaserCo2' },
+  { key: 'rf', id: 'rf', routeKey: 'treatmentRf' },
+  { key: 'emsella', id: 'emsella', routeKey: 'treatmentEmsella' },
+  { key: 'prp', id: 'prp', routeKey: 'treatmentPrp' },
+  { key: 'bioidenticalHt', id: 'th-bioidentica', routeKey: 'treatmentBioidenticalHt' },
+  { key: 'magnetotherapy', id: 'magnetoterapia', routeKey: 'treatmentMagnetotherapy' },
 ];
 
 // Breadcrumb structured data
@@ -72,7 +73,7 @@ const breadcrumbData = {
   <!-- Breadcrumb -->
   <nav aria-label="Breadcrumb" class="bg-gray-50 border-y border-border">
     <Container>
-      <ol class="flex items-center gap-2 py-3 text-body-sm">
+      <ol class="flex items-center gap-2 py-3 text-body-sm list-none pl-0">
         <li>
           <a href={getRoute('home', lang)} class="text-text-secondary hover:text-primary transition-colors">
             {t.nav.home}
@@ -85,6 +86,34 @@ const breadcrumbData = {
       </ol>
     </Container>
   </nav>
+
+  <!-- When to consult -->
+  <section class="py-section lg:py-section-lg bg-white">
+    <Container>
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="text-primary font-medium text-body-sm uppercase tracking-wider mb-3">
+            {t.regenerative.whenToConsult.eyebrow}
+          </p>
+          <h2 class="text-display-sm text-text font-bold mb-6 text-balance">
+            {t.regenerative.whenToConsult.title}
+          </h2>
+        </div>
+        <ul class="space-y-3">
+          {t.regenerative.whenToConsult.items.map((item: string) => (
+            <li class="flex items-center gap-3">
+              <span class="flex-shrink-0 w-5 h-5 text-primary">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+              <span class="text-body text-text-secondary">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Container>
+  </section>
 
   <!-- Treatment Sections -->
   {treatments.map((treatment, index) => {
@@ -125,8 +154,11 @@ const breadcrumbData = {
                 </ul>
               </div>
 
-              <div class="mt-8">
-                <Button href={getRoute('appointment', lang)} variant="primary">
+              <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                <Button href={getRoute(treatment.routeKey, lang)} variant="primary">
+                  Más información
+                </Button>
+                <Button href={getRoute('appointment', lang)} variant="outline">
                   {t.nav.appointment}
                 </Button>
               </div>
@@ -163,7 +195,7 @@ const breadcrumbData = {
           const section = t.regenerative.sections[treatment.key as keyof typeof t.regenerative.sections];
           return (
             <a 
-              href={`#${treatment.id}`}
+              href={getRoute(treatment.routeKey, lang)}
               class="px-4 py-2 bg-gray-100 hover:bg-primary-50 text-body-sm text-text hover:text-primary rounded-full transition-colors"
             >
               {section.title}
@@ -173,6 +205,9 @@ const breadcrumbData = {
       </div>
     </Container>
   </section>
+
+  <!-- FAQs -->
+  <FaqAccordion lang={lang} faqs={t.regenerative.faqs.items} />
 
   <!-- CTA -->
   <CtaWideCard lang={lang} />

@@ -7,13 +7,12 @@
 
 import Container from './ui/Container.astro';
 import Button from './ui/Button.astro';
-import { 
-  type Lang, 
-  languages, 
-  getRoute, 
+import {
+  type Lang,
+  languages,
+  getRoute,
   getEquivalentUrl,
-  treatmentAnchors,
-  getTranslations 
+  getTranslations
 } from '../i18n';
 
 interface Props {
@@ -27,19 +26,21 @@ const t = getTranslations(lang);
 // Navigation items
 const navItems = [
   { label: t.nav.home, href: getRoute('home', lang) },
-  { 
-    label: t.nav.regenerativeGynecology, 
+  {
+    label: t.nav.regenerativeGynecology,
     href: getRoute('regenerative', lang),
     dropdown: [
-      { label: t.treatments.rf, href: getRoute('regenerative', lang) + treatmentAnchors.rf },
-      { label: t.treatments.laserCo2, href: getRoute('regenerative', lang) + treatmentAnchors.laserCo2 },
-      { label: t.treatments.emsella, href: getRoute('regenerative', lang) + treatmentAnchors.emsella },
-      { label: t.treatments.photobiomodulation, href: getRoute('regenerative', lang) + treatmentAnchors.photobiomodulation },
-      { label: t.treatments.magnetotherapy, href: getRoute('regenerative', lang) + treatmentAnchors.magnetotherapy },
-      { label: t.treatments.bioidenticalHt, href: getRoute('regenerative', lang) + treatmentAnchors.bioidenticalHt },
+      { label: t.treatments.laserCo2, href: getRoute('treatmentLaserCo2', lang) },
+      { label: t.treatments.rf, href: getRoute('treatmentRf', lang) },
+      { label: t.treatments.emsella, href: getRoute('treatmentEmsella', lang) },
+      { label: t.treatments.prp, href: getRoute('treatmentPrp', lang) },
+      { label: t.treatments.bioidenticalHt, href: getRoute('treatmentBioidenticalHt', lang) },
+      { label: t.treatments.magnetotherapy, href: getRoute('treatmentMagnetotherapy', lang) },
     ]
   },
-  { label: t.nav.diagnostics, href: getRoute('diagnostics', lang) },
+  { label: t.nav.obstetrics, href: getRoute('obstetrics', lang) },
+  { label: t.nav.gynecology, href: getRoute('gynecology', lang) },
+  { label: t.nav.patientCare, href: getRoute('patientCare', lang) },
 ];
 
 // Language options for selector

@@ -14,13 +14,12 @@ const t = getTranslations(lang);
 
 // Service options for form
 const services = [
-  t.treatments.rf,
   t.treatments.laserCo2,
+  t.treatments.rf,
   t.treatments.emsella,
-  t.treatments.photobiomodulation,
-  t.treatments.magnetotherapy,
+  t.treatments.prp,
   t.treatments.bioidenticalHt,
-  t.diagnostics.title,
+  t.treatments.magnetotherapy,
   'Consulta general',
 ];
 ---
@@ -51,7 +50,7 @@ const services = [
   <!-- Breadcrumb -->
   <nav aria-label="Breadcrumb" class="bg-gray-50 border-y border-border">
     <Container>
-      <ol class="flex items-center gap-2 py-3 text-body-sm">
+      <ol class="flex items-center gap-2 py-3 text-body-sm list-none pl-0">
         <li>
           <a href={getRoute('home', lang)} class="text-text-secondary hover:text-primary transition-colors">
             {t.nav.home}
@@ -229,7 +228,7 @@ const services = [
             <!-- WhatsApp Button -->
             <div class="mt-8 pt-8 border-t border-border">
               <a 
-                href="https://wa.me/34XXXXXXXXX"
+                href="https://wa.me/34652582768"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="flex items-center justify-center gap-3 w-full py-3 px-6 bg-green-500 hover:bg-green-600 text-white font-medium rounded-lg transition-colors"

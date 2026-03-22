@@ -6,6 +6,7 @@
 
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
 import '../styles/global.css';
 import { 
   type Lang, 
@@ -71,24 +72,24 @@ const defaultStructuredData = {
   '@context': 'https://schema.org',
   '@type': 'MedicalBusiness',
   '@id': `${siteUrl}/#organization`,
-  name: 'Instituto Ginecológico Alicante',
+  name: 'Instituto Dr. Rafael Fraile Pérez-Cuadrado',
   alternateName: 'IGA',
   description: t.meta.siteDescription,
   url: siteUrl,
-  telephone: '+34 XXX XXX XXX', // TODO: Add real phone
-  email: 'info@institutoginecologicoalicante.com',
+  telephone: '+34965248558',
+  email: 'info@institutomaternoinfantil.es',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Calle [Nombre], [Número]', // TODO: Add real address
+    streetAddress: 'Avda. Denia, 103',
     addressLocality: 'Alicante',
     addressRegion: 'Comunidad Valenciana',
-    postalCode: '03001',
+    postalCode: '03015',
     addressCountry: 'ES',
   },
   geo: {
     '@type': 'GeoCoordinates',
-    latitude: '38.3452', // TODO: Add real coordinates
-    longitude: '-0.4810',
+    latitude: '38.3565',
+    longitude: '-0.4602',
   },
   openingHoursSpecification: {
     '@type': 'OpeningHoursSpecification',
@@ -187,7 +188,10 @@ const allStructuredData = structuredData
     
     <!-- Footer -->
     <Footer lang={lang} />
-    
+
+    <!-- WhatsApp floating button -->
+    <WhatsAppButton />
+
     <!-- Scripts slot for page-specific scripts -->
     <slot name="scripts" />
   </body>
