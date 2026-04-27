@@ -37,9 +37,9 @@ const t = getTranslations(lang);
             <!-- Teal background shape -->
             <div class="absolute top-0 right-0 w-[85%] h-[85%] bg-primary rounded-2xl"></div>
             <!-- Doctor image -->
-            <img 
-              src="/images/Dr_Fraile.png" 
-              alt="Dr. Rafael Fraile - Especialista en Ginecología Regenerativa"
+            <img
+              src="/images/Dr_Fraile.png"
+              alt={t.home.doctor.imageAlt}
               class="relative z-10 w-full h-auto"
               loading="lazy"
             />
@@ -50,7 +50,7 @@ const t = getTranslations(lang);
         <div class="absolute bottom-4 right-0 lg:right-auto lg:-left-6 lg:bottom-12 bg-white rounded-xl shadow-lg p-4 z-20">
           <div class="text-center">
             <span class="block text-display-sm font-bold text-primary">+25</span>
-            <span class="block text-body-sm text-text-secondary">años de<br />experiencia</span>
+            <span class="block text-body-sm text-text-secondary" set:html={t.home.doctor.experienceLabel.replace('\n', '<br />')} />
           </div>
         </div>
       </div>
@@ -74,7 +74,7 @@ const t = getTranslations(lang);
 
         <!-- Credentials -->
         <div class="mt-8">
-          <h3 class="text-subheading font-semibold text-text mb-4">Formación y credenciales</h3>
+          <h3 class="text-subheading font-semibold text-text mb-4">{t.home.doctor.credentialsHeading}</h3>
           <ul class="space-y-3">
             {t.home.doctor.credentials.map((credential) => (
               <li class="flex items-start gap-3">

@@ -6,7 +6,7 @@
 
 import Container from '../ui/Container.astro';
 import SectionHeading from '../ui/SectionHeading.astro';
-import { type Lang, getTranslations } from '../../i18n';
+import { type Lang, getTranslations, formatTranslation } from '../../i18n';
 
 interface Props {
   lang: Lang;
@@ -30,7 +30,7 @@ const t = getTranslations(lang);
                 </svg>
               </div>
               <p class="text-body-sm text-text-muted">
-                [Imagen: Tecnología médica avanzada o tratamiento]
+                {formatTranslation(t.common.imagePlaceholder, { name: t.home.whatIs.imageDescription })}
               </p>
             </div>
           </div>
@@ -57,12 +57,7 @@ const t = getTranslations(lang);
 
         <!-- Key points -->
         <ul class="mt-8 space-y-3">
-          {[
-            'Tratamientos no invasivos',
-            'Tecnología de vanguardia',
-            'Resultados naturales',
-            'Atención personalizada',
-          ].map((point) => (
+          {t.home.whatIs.keyPoints.map((point) => (
             <li class="flex items-center gap-3">
               <span class="flex-shrink-0 w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center">
                 <svg class="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">

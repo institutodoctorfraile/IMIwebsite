@@ -17,6 +17,7 @@ export const es = {
     regenerativeGynecology: 'Ginecología Regenerativa',
     obstetrics: 'Obstetricia',
     gynecology: 'Ginecología',
+    team: 'Equipo',
     patientCare: 'Atención al paciente',
     diagnostics: 'Diagnósticos',
     appointment: 'Pide tu cita',
@@ -40,13 +41,16 @@ export const es = {
 
     // Hero section
     hero: {
-      eyebrow: 'Instituto Dr. Rafael Fraile Pérez-Cuadrado',
+      eyebrow: 'Instituto Ginecológico de Alicante',
       title: 'Excelencia médica para cada etapa de tu vida',
       subtitle: 'Salud integral de la mujer con valoración rigurosa, diagnóstico claro y un plan personalizado.',
       note: 'Más de 25 años acompañando a mujeres en consulta.',
       cta: 'Solicita tu cita',
       ctaWhatsapp: 'Hablar por WhatsApp',
       ctaSecondary: 'Conocer tratamientos',
+      callUsLabel: 'O llámanos:',
+      imageDescription: 'Clínica o equipo médico',
+      imageAlt: 'Dr. Rafael Fraile en consulta',
     },
 
     // Services block (Bloque 2)
@@ -106,6 +110,13 @@ export const es = {
       description: 'La ginecología regenerativa es una especialidad médica que utiliza tecnologías avanzadas y tratamientos no invasivos para restaurar, regenerar y mejorar la función y salud del sistema reproductor femenino.',
       paragraph1: 'Mediante técnicas como la radiofrecuencia, el láser CO2 fraccionado, la estimulación magnética y la terapia hormonal bioidéntica, logramos resultados excepcionales en el tratamiento de diversas condiciones ginecológicas.',
       paragraph2: 'Nuestro enfoque se centra en tratamientos mínimamente invasivos que estimulan los procesos naturales de regeneración del cuerpo, ofreciendo alternativas efectivas a procedimientos quirúrgicos tradicionales.',
+      imageDescription: 'Tecnología médica avanzada o tratamiento',
+      keyPoints: [
+        'Tratamientos no invasivos',
+        'Tecnología de vanguardia',
+        'Resultados naturales',
+        'Atención personalizada',
+      ],
     },
 
     // Doctor section
@@ -114,6 +125,9 @@ export const es = {
       title: 'Dr. Rafael Fraile Pérez-Cuadrado',
       subtitle: 'Más de 25 años de experiencia en ginecología y obstetricia',
       bio: 'Con más de 25 años de experiencia en ginecología y obstetricia, el Dr. Fraile combina criterio clínico, formación continuada y un trato cercano para ofrecer a cada paciente la atención que necesita. Su enfoque se basa en escuchar, diagnosticar con rigor y proponer soluciones adecuadas a cada caso y momento vital.',
+      credentialsHeading: 'Formación y credenciales',
+      imageAlt: 'Dr. Rafael Fraile - Especialista en Ginecología Regenerativa',
+      experienceLabel: 'años de\nexperiencia',
       credentials: [
         'Especialista en Ginecología y Obstetricia',
         'Experto en ginecología regenerativa y funcional',
@@ -158,16 +172,30 @@ export const es = {
 
     // Team section
     team: {
-      eyebrow: 'Equipo humano',
+      eyebrow: 'Equipo clínico',
       title: 'Profesionales comprometidos con tu salud',
-      description: 'Nuestro equipo combina experiencia médica con un trato cercano y personalizado.',
+      description: 'Nuestro equipo combina experiencia médica con un trato cercano y personalizado. Te atendemos con una idea clara: que salgas con un diagnóstico comprensible y un plan adaptado a ti.',
       members: [
         {
+          slug: 'rafael-fraile',
           name: 'Dr. Rafael Fraile Pérez-Cuadrado',
-          role: 'Ginecólogo y obstetra',
-          bio: 'Especialista con más de 25 años de experiencia en ginecología, obstetricia y ginecología regenerativa.',
+          role: 'Director médico · Ginecólogo y obstetra',
+          bio: 'Más de 25 años de experiencia clínica, con un enfoque basado en rigor, claridad y seguimiento.',
+        },
+        {
+          slug: 'natalia-golubtsova',
+          name: 'Dra. Natalia Golubtsova',
+          role: 'Obstetra-ginecóloga',
+          bio: 'Visión hormonal, apoyo diagnóstico por ecografía y formación en ginecología funcional y regenerativa.',
+        },
+        {
+          slug: 'lucia-mascia',
+          name: 'Dra. Lucía Mascia',
+          role: 'Ginecobstetra',
+          bio: 'Acompañamiento cercano en ginecología y obstetricia, con experiencia y enfoque práctico.',
         },
       ],
+      cta: 'Conoce al equipo',
     },
 
     // Trust block (Bloque 5)
@@ -574,7 +602,7 @@ export const es = {
       {
         id: 'patologia-mamaria',
         title: 'Patología mamaria',
-        description: 'La revisión mamaria es importante para el diagnóstico precoz. Ofrecemos un circuito de atención claro: evaluación, orientación y seguimiento.',
+        description: 'En la Unidad de Patología Mamaria del Instituto Ginecológico de Alicante combinamos todos los servicios en un ambiente cálido y eficiente, que da soporte y ayuda a la paciente con el objetivo de obtener la excelencia en el diagnóstico y en el tratamiento de las enfermedades mamarias.',
         items: [],
       },
       {
@@ -912,11 +940,11 @@ export const es = {
   // Treatment: Radiofrecuencia vaginal y vulvar
   treatmentRf: {
     title: 'Radiofrecuencia vaginal y vulvar',
-    description: 'Valoración médica rigurosa, diagnóstico claro y un plan personalizado. Soluciones para mejorar tu calidad de vida.',
+    description: 'Diagnóstico individualizado y tratamiento adaptado para mejorar la funcionalidad, el confort y la calidad de vida íntima.',
     hero: {
       eyebrow: 'Ginecología regenerativa',
       title: 'Radiofrecuencia vaginal y vulvar',
-      subtitle: 'Valoración médica rigurosa, diagnóstico claro y un plan personalizado. Soluciones para mejorar tu calidad de vida.',
+      subtitle: 'Diagnóstico individualizado y tratamiento adaptado para mejorar la funcionalidad, el confort y la calidad de vida íntima.',
     },
     whenToConsult: {
       title: 'Cuándo puede ayudarte',
@@ -965,11 +993,11 @@ export const es = {
   // Treatment: Emsella HIFEM
   treatmentEmsella: {
     title: 'Emsella HIFEM',
-    description: 'Valoración médica rigurosa, diagnóstico claro y un plan personalizado. Soluciones para mejorar tu calidad de vida.',
+    description: 'Diagnóstico individualizado y tratamiento no invasivo para fortalecer el suelo pélvico y mejorar tu día a día.',
     hero: {
       eyebrow: 'Ginecología regenerativa',
       title: 'Emsella HIFEM',
-      subtitle: 'Valoración médica rigurosa, diagnóstico claro y un plan personalizado. Soluciones para mejorar tu calidad de vida.',
+      subtitle: 'Diagnóstico individualizado y tratamiento no invasivo para fortalecer el suelo pélvico y mejorar tu día a día.',
     },
     whenToConsult: {
       title: 'Cuándo puede ayudarte',
@@ -1017,11 +1045,11 @@ export const es = {
   // Treatment: PRP íntimo
   treatmentPrp: {
     title: 'PRP íntimo',
-    description: 'Valoración médica rigurosa, diagnóstico claro y un plan personalizado. Soluciones para mejorar tu calidad de vida.',
+    description: 'Atención especializada y plan personalizado para favorecer la regeneración de la zona íntima y mejorar tu bienestar.',
     hero: {
       eyebrow: 'Ginecología regenerativa',
       title: 'PRP íntimo',
-      subtitle: 'Valoración médica rigurosa, diagnóstico claro y un plan personalizado. Soluciones para mejorar tu calidad de vida.',
+      subtitle: 'Atención especializada y plan personalizado para favorecer la regeneración de la zona íntima y mejorar tu bienestar.',
     },
     whenToConsult: {
       title: 'Cuándo puede ayudarte',
@@ -1068,11 +1096,11 @@ export const es = {
   // Treatment: Terapia Hormonal Bioidéntica
   treatmentBioidenticalHt: {
     title: 'Terapia Hormonal Bioidéntica',
-    description: 'Valoración médica rigurosa, diagnóstico claro y un plan personalizado. Soluciones para mejorar tu calidad de vida.',
+    description: 'Evaluación médica personalizada para ayudarte a recuperar equilibrio, bienestar y calidad de vida en cada etapa hormonal.',
     hero: {
       eyebrow: 'Ginecología regenerativa',
       title: 'Terapia Hormonal Bioidéntica',
-      subtitle: 'Valoración médica rigurosa, diagnóstico claro y un plan personalizado. Soluciones para mejorar tu calidad de vida.',
+      subtitle: 'Evaluación médica personalizada para ayudarte a recuperar equilibrio, bienestar y calidad de vida en cada etapa hormonal.',
     },
     whenToConsult: {
       title: 'Cuándo puede ayudarte',
@@ -1125,11 +1153,11 @@ export const es = {
   // Treatment: Magnetoterapia
   treatmentMagnetotherapy: {
     title: 'Magnetoterapia',
-    description: 'Valoración médica rigurosa, diagnóstico claro y un plan personalizado. Soluciones para mejorar tu calidad de vida.',
+    description: 'Diagnóstico individualizado y tratamiento personalizado para aliviar molestias y mejorar tu calidad de vida.',
     hero: {
       eyebrow: 'Ginecología regenerativa',
       title: 'Magnetoterapia',
-      subtitle: 'Valoración médica rigurosa, diagnóstico claro y un plan personalizado. Soluciones para mejorar tu calidad de vida.',
+      subtitle: 'Diagnóstico individualizado y tratamiento personalizado para aliviar molestias y mejorar tu calidad de vida.',
     },
     whenToConsult: {
       title: 'Cuándo puede ayudarte',
@@ -1177,6 +1205,103 @@ export const es = {
     },
   },
 
+  // Team page
+  team: {
+    title: 'Equipo',
+    description: 'Un equipo médico que te aporta claridad y tranquilidad en cada visita. Conoce a los profesionales del Instituto Dr. Rafael Fraile Pérez-Cuadrado.',
+    hero: {
+      eyebrow: 'Nuestro equipo',
+      title: 'Un equipo médico que te aporta claridad y tranquilidad',
+      subtitle: 'En el Instituto Dr. Rafael Fraile Pérez-Cuadrado te atiende un equipo con una forma de trabajar muy concreta: escuchar, valorar con rigor, explicar con claridad y acompañarte a lo largo del proceso con un plan personalizado.',
+      imageAlt: 'Equipo médico del Instituto Dr. Rafael Fraile Pérez-Cuadrado',
+    },
+    director: {
+      eyebrow: 'Dirección médica',
+      name: 'Dr. Rafael Fraile Pérez-Cuadrado',
+      role: 'Ginecólogo y obstetra · Director médico',
+      imageAlt: 'Dr. Rafael Fraile Pérez-Cuadrado, Director médico',
+      bio: 'El Dr. Fraile lidera el Instituto con un enfoque centrado en lo que más valora una paciente: criterio clínico, decisiones bien explicadas y seguimiento. Su trayectoria y formación se traducen en más seguridad al diagnosticar, más claridad al decidir y un plan adaptado a tu caso y a tu etapa vital.',
+      highlights: [
+        '<strong>Más de 25 años de práctica clínica</strong>, con una base sólida como Doctor en Medicina y Cirugía (Cum Laude) y especialista vía MIR.',
+        '<strong>Seguimiento de embarazo con rigor:</strong> acreditación FMF (2006–actualidad) para cribado prenatal del primer trimestre, reforzada por formación en ecografía obstétrico-ginecológica (SESEGO).',
+        '<strong>Salud íntima avanzada con enfoque médico:</strong> formación específica en ginecología regenerativa y funcional y láser (SEGO Fase I y II), para elegir opciones actuales cuando realmente están indicadas.',
+        '<strong>Visión integral y prudencia clínica:</strong> formación avanzada en áreas que ayudan a valorar con más perspectiva y seguridad, como patología mamaria/senología y ginecología oncológica.',
+        '<strong>Reconocimientos profesionales:</strong> a lo largo de su trayectoria, el Dr. Rafael Fraile ha recibido distinciones por su dedicación y aportación a la salud de la mujer, entre ellas la <strong>Medalla de Oro de los Reyes Católicos a la trayectoria profesional</strong>, la <strong>Medalla de Oro de la Ilustre Academia de Ciencias de la Salud Ramón y Cajal a la trayectoria humanitaria</strong> y el <strong>Premio Alfil Honorífico (2019)</strong>. Además, ha sido reconocido internacionalmente por asociaciones profesionales del ámbito obstétrico-ginecológico.',
+      ],
+      cta: 'Pide tu cita',
+    },
+    clinicalTeam: {
+      eyebrow: 'Equipo clínico',
+      title: 'Médicas que continúan el mismo criterio',
+      members: [
+        {
+          slug: 'natalia-golubtsova',
+          name: 'Dra. Natalia Golubtsova',
+          role: 'Médica obstetra-ginecóloga',
+          imageAlt: 'Dra. Natalia Golubtsova',
+          bio: 'La Dra. Natalia aporta un perfil que combina visión hormonal, apoyo diagnóstico por ecografía y formación específica en ginecología funcional y regenerativa. Su experiencia en entorno hospitalario y consulta privada se traduce en una atención segura, metódica y cercana.',
+          highlights: [
+            '<strong>Comprender el componente hormonal:</strong> formación en endocrinología ginecológica, útil cuando hay síntomas que requieren una visión más funcional (ciclo, menopausia, bienestar general).',
+            '<strong>Claridad diagnóstica:</strong> especialidad en diagnóstico por ultrasonido, para valorar con más precisión y tomar decisiones con calma.',
+            '<strong>Salud íntima avanzada:</strong> formación en ginecología estética, funcional y regenerativa, integrada dentro de un enfoque médico y personalizado.',
+            '<strong>Prevención y patología cervical:</strong> formación en colposcopia y patología cervical, para un seguimiento más completo cuando es necesario.',
+            '<strong>Idiomas:</strong> español · ruso · inglés.',
+          ],
+        },
+        {
+          slug: 'lucia-mascia',
+          name: 'Dra. Lucía Mascia',
+          role: 'Ginecobstetra',
+          imageAlt: 'Dra. Lucía Mascia',
+          bio: 'La Dra. Lucía destaca por una combinación de experiencia clínica, trato cercano y una atención muy orientada a acompañarte paso a paso, tanto en ginecología como en obstetricia.',
+          highlights: [
+            '<strong>Experiencia clínica consolidada:</strong> más de 13 años de ejercicio profesional, que se traduce en seguridad y capacidad resolutiva en consulta.',
+            '<strong>Seguimiento completo:</strong> consulta ginecológica y obstétrica con apoyo de ecografía ginecológica y obstétrica.',
+            '<strong>Bienestar y salud sexual:</strong> formación específica en salud sexual, para abordar síntomas con naturalidad, rigor y enfoque práctico.',
+            '<strong>Idiomas:</strong> español · inglés · italiano.',
+          ],
+        },
+      ],
+      cta: 'Pide tu cita',
+    },
+    process: {
+      eyebrow: 'Cómo trabajamos',
+      title: 'Claridad desde la primera visita',
+      note: 'La indicación se decide tras valoración médica.',
+      steps: [
+        { number: '1', title: 'Valoración y escucha', description: 'Entendemos tu situación, antecedentes y objetivos.' },
+        { number: '2', title: 'Diagnóstico claro', description: 'Te explicamos qué ocurre y qué opciones tienen sentido en tu caso.' },
+        { number: '3', title: 'Plan y seguimiento', description: 'Definimos el siguiente paso y acompañamos tu evolución.' },
+      ],
+    },
+    faqs: {
+      eyebrow: 'Preguntas frecuentes',
+      title: 'Resolvemos tus dudas',
+      items: [
+        {
+          question: '¿Cómo se asigna el profesional que me atenderá?',
+          answer: 'En función de tu motivo de consulta y de la agenda, te asignamos la doctora o el doctor más adecuado. El equipo trabaja con el mismo criterio y coordinación clínica, y si tu caso lo requiere, se valora directamente con el Dr. Fraile.',
+        },
+        {
+          question: '¿Qué diferencia al equipo del Instituto frente a otras clínicas?',
+          answer: 'La combinación de dirección médica, experiencia y coherencia: un equipo coordinado que prioriza el criterio clínico y la claridad, con un enfoque integral para acompañarte en cada etapa sin perder el rigor.',
+        },
+        {
+          question: '¿Puedo pedir una segunda opinión?',
+          answer: 'Sí. Revisamos tu caso y te explicamos opciones y siguientes pasos con claridad.',
+        },
+        {
+          question: '¿Atendéis en otros idiomas?',
+          answer: 'Sí. Además de español, el equipo puede atender en inglés, italiano y ruso según disponibilidad.',
+        },
+        {
+          question: '¿Cómo se gestiona la cita?',
+          answer: 'Puedes escribirnos por formulario o WhatsApp y te llamamos para asignarte día y hora.',
+        },
+      ],
+    },
+  },
+
   // Common
   common: {
     learnMore: 'Saber más',
@@ -1188,6 +1313,22 @@ export const es = {
     menu: 'Menú',
     openMenu: 'Abrir menú',
     closeMenu: 'Cerrar menú',
+    benefits: 'Beneficios',
+    moreInfo: 'Más información',
+    seeMore: 'Ver más',
+    imagePlaceholder: '[Imagen: {name}]',
+    imageProcedureLabel: 'procedimiento',
+    whatsappAriaLabel: 'Contactar por WhatsApp',
+  },
+
+  // 404 Not Found page
+  notFound: {
+    title: 'Página no encontrada',
+    description: 'La página que buscas no existe o ha sido movida.',
+    heading: 'Esta página no existe',
+    message: 'Es posible que el enlace esté roto o que la página se haya movido. Vuelve al inicio o contacta con nosotros si necesitas ayuda.',
+    cta: 'Volver al inicio',
+    ctaContact: 'Contactar',
   },
 };
 

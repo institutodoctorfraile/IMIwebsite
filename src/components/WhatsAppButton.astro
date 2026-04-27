@@ -3,13 +3,22 @@
  * WhatsAppButton
  * Floating WhatsApp contact button with pulse animation
  */
+
+import { type Lang, defaultLang, getTranslations } from '../i18n';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = defaultLang } = Astro.props;
+const t = getTranslations(lang);
 ---
 
 <a
   href="https://wa.me/34652582768"
   target="_blank"
   rel="noopener noreferrer"
-  aria-label="Contactar por WhatsApp"
+  aria-label={t.common.whatsappAriaLabel}
   class="whatsapp-button"
 >
   <svg

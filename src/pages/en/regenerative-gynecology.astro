@@ -9,7 +9,7 @@ import Container from '../../components/ui/Container.astro';
 import SectionHeading from '../../components/ui/SectionHeading.astro';
 import Button from '../../components/ui/Button.astro';
 import CtaWideCard from '../../components/sections/CtaWideCard.astro';
-import { getTranslations, getRoute } from '../../i18n';
+import { getTranslations, getRoute, formatTranslation } from '../../i18n';
 
 const lang = 'en';
 const t = getTranslations(lang);
@@ -110,7 +110,7 @@ const breadcrumbData = {
 
               <!-- Benefits -->
               <div class="mt-8">
-                <h3 class="text-subheading font-semibold text-text mb-4">Benefits</h3>
+                <h3 class="text-subheading font-semibold text-text mb-4">{t.common.benefits}</h3>
                 <ul class="space-y-3">
                   {section.benefits.map((benefit) => (
                     <li class="flex items-start gap-3">
@@ -143,7 +143,7 @@ const breadcrumbData = {
                       </svg>
                     </div>
                     <p class="text-body-sm text-text-muted">
-                      [Image: {section.title}]
+                      {formatTranslation(t.common.imagePlaceholder, { name: section.title })}
                     </p>
                   </div>
                 </div>

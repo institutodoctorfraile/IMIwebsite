@@ -11,7 +11,7 @@ import Button from '../components/ui/Button.astro';
 import FaqAccordion from '../components/sections/FaqAccordion.astro';
 import ProcessSteps from '../components/sections/ProcessSteps.astro';
 import CtaWideCard from '../components/sections/CtaWideCard.astro';
-import { getTranslations, getRoute } from '../i18n';
+import { getTranslations, getRoute, formatTranslation } from '../i18n';
 
 const lang = 'es';
 const t = getTranslations(lang);
@@ -130,7 +130,7 @@ const breadcrumbData = {
                       </svg>
                     </div>
                     <p class="text-body-sm text-text-muted">
-                      [Imagen: {service.title}]
+                      {formatTranslation(t.common.imagePlaceholder, { name: service.title })}
                     </p>
                   </div>
                 </div>

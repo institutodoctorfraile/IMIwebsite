@@ -1,0 +1,43 @@
+---
+/**
+ * 404 Not Found page
+ * Static fallback for unmatched routes. Uses default language (es).
+ */
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Container from '../components/ui/Container.astro';
+import Button from '../components/ui/Button.astro';
+import { defaultLang, getTranslations, getRoute } from '../i18n';
+
+const lang = defaultLang;
+const t = getTranslations(lang);
+---
+
+<BaseLayout
+  title={t.notFound.title}
+  description={t.notFound.description}
+  lang={lang}
+  robots="noindex, follow"
+>
+  <section class="py-section lg:py-section-lg bg-gradient-to-br from-primary-50 via-white to-white">
+    <Container>
+      <div class="max-w-2xl mx-auto text-center">
+        <p class="text-primary font-bold text-display tracking-tight mb-4">404</p>
+        <h1 class="text-display-sm md:text-display text-text font-bold mb-6 text-balance">
+          {t.notFound.heading}
+        </h1>
+        <p class="text-body-lg text-text-secondary mb-10">
+          {t.notFound.message}
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href={getRoute('home', lang)} variant="primary" size="lg">
+            {t.notFound.cta}
+          </Button>
+          <Button href={getRoute('patientCare', lang)} variant="outline" size="lg">
+            {t.notFound.ctaContact}
+          </Button>
+        </div>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>
