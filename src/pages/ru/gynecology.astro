@@ -60,25 +60,7 @@ const breadcrumbData = {
       </div>
     </Container>
   </section>
-
-  <!-- Breadcrumb -->
-  <nav aria-label="Breadcrumb" class="bg-gray-50 border-y border-border">
-    <Container>
-      <ol class="flex items-center gap-2 py-3 text-body-sm list-none pl-0">
-        <li>
-          <a href={getRoute('home', lang)} class="text-text-secondary hover:text-primary transition-colors">
-            {t.nav.home}
-          </a>
-        </li>
-        <li class="text-text-muted">/</li>
-        <li class="text-text font-medium" aria-current="page">
-          {t.gynecology.title}
-        </li>
-      </ol>
-    </Container>
-  </nav>
-
-  <!-- Service Sections -->
+<!-- Service Sections -->
   {t.gynecology.services.map((service: { id: string; title: string; description: string; items: string[]; relatedLink?: { text: string; key: string } }, index: number) => {
     const isEven = index % 2 === 0;
 

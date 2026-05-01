@@ -4,6 +4,8 @@
  * Main layout with complete SEO, accessibility, and structured data
  */
 
+import { getImage } from 'astro:assets';
+import rafaelPortrait from '../assets/images/Rafael_1plano.jpg';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
@@ -58,6 +60,9 @@ const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://institutog
 const currentPath = Astro.url.pathname;
 const canonicalUrl = canonical || `${siteUrl}${currentPath}`;
 
+// Optimized portrait for schema.org
+const optimizedPortrait = await getImage({ src: rafaelPortrait, format: 'webp' });
+
 // Get alternate language URLs for hreflang
 const detectedPageKey = pageKey || getPageKeyFromPath(currentPath);
 const alternateUrls = detectedPageKey 
@@ -98,7 +103,7 @@ const defaultStructuredData = {
     closes: '20:00',
   },
   priceRange: '$$',
-  image: `${siteUrl}/images/clinic.jpg`, // TODO: Add real image
+  image: `${siteUrl}${optimizedPortrait.src}`,
   sameAs: [
     // TODO: Add social media URLs
   ],
@@ -187,7 +192,7 @@ const allStructuredData = structuredData
     </main>
     
     <!-- Footer -->
-    <Footer lang={lang} />
+    <Footer lang={lang} currentPath={currentPath} />
 
     <!-- WhatsApp floating button -->
     <WhatsAppButton lang={lang} />

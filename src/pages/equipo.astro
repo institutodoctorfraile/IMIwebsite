@@ -189,7 +189,10 @@ const breadcrumbData = {
                       widths={[400, 600, 900]}
                       sizes="(min-width: 1024px) 40vw, 100vw"
                       loading="lazy"
-                      class="relative w-full h-auto rounded-2xl object-cover aspect-[4/5]"
+                      class:list={[
+                        'relative w-full h-auto rounded-2xl object-cover aspect-[4/5]',
+                        member.slug === 'natalia-golubtsova' && 'object-top',
+                      ]}
                     />
                   </div>
                 </div>

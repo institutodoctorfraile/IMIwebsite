@@ -43,7 +43,7 @@ export const ru: TranslationKeys = {
 
     // Hero section
     hero: {
-      eyebrow: 'Instituto Ginecológico de Alicante',
+      eyebrow: 'INSTITUTO DR. RAFAEL FRAILE PÉREZ-CUADRADO',
       title: 'Медицинское совершенство на каждом этапе вашей жизни',
       subtitle: 'Комплексное женское здоровье с тщательной оценкой, точным диагнозом и индивидуальным планом.',
       note: 'Более 25 лет сопровождения женщин на приёме.',
@@ -876,6 +876,8 @@ export const ru: TranslationKeys = {
   footer: {
     description: 'Институт доктора Рафаэля Фрайле Перес-Куадрадо. Гинекология, акушерство и регенеративная гинекология в Аликанте. Более 25 лет заботы о женском здоровье.',
     quickLinks: 'Быстрые ссылки',
+    specialties: 'Специальности',
+    about: 'О нас',
     contact: 'Контакты',
     legal: 'Правовая информация',
     privacy: 'Политика конфиденциальности',

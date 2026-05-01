@@ -41,7 +41,7 @@ export const es = {
 
     // Hero section
     hero: {
-      eyebrow: 'Instituto Ginecológico de Alicante',
+      eyebrow: 'INSTITUTO DR. RAFAEL FRAILE PÉREZ-CUADRADO',
       title: 'Excelencia médica para cada etapa de tu vida',
       subtitle: 'Salud integral de la mujer con valoración rigurosa, diagnóstico claro y un plan personalizado.',
       note: 'Más de 25 años acompañando a mujeres en consulta.',
@@ -132,7 +132,7 @@ export const es = {
         'Especialista en Ginecología y Obstetricia',
         'Experto en ginecología regenerativa y funcional',
         'Más de 25 años de ejercicio profesional',
-        'Formación continuada y actualización constante',
+        'Especialista en cirugía laparoscópica',
       ],
     },
 
@@ -140,7 +140,7 @@ export const es = {
     treatmentsSection: {
       eyebrow: 'Ginecología regenerativa',
       title: 'Tecnología avanzada para tu bienestar',
-      description: 'Opciones avanzadas cuando están indicadas, con valoración médica rigurosa y plan personalizado.',
+      description: 'Opciones avanzadas con valoración médica rigurosa y plan personalizado.',
       viewMore: 'Más información',
       cards: {
         laserCo2: {
@@ -185,13 +185,13 @@ export const es = {
         {
           slug: 'natalia-golubtsova',
           name: 'Dra. Natalia Golubtsova',
-          role: 'Obstetra-ginecóloga',
+          role: 'Ginecóloga y obstetra',
           bio: 'Visión hormonal, apoyo diagnóstico por ecografía y formación en ginecología funcional y regenerativa.',
         },
         {
           slug: 'lucia-mascia',
           name: 'Dra. Lucía Mascia',
-          role: 'Ginecobstetra',
+          role: 'Ginecóloga y obstetra',
           bio: 'Acompañamiento cercano en ginecología y obstetricia, con experiencia y enfoque práctico.',
         },
       ],
@@ -330,9 +330,9 @@ export const es = {
     // CTA section (Bloque 7)
     cta: {
       title: 'Solicita tu cita',
-      description: 'Cuéntanos brevemente el motivo y te llamamos para asignarte día y hora.',
+      description: 'Cuéntanos el motivo y te llamamos para asignarte día y hora con tu especialista de confianza.',
       button: 'Solicita tu cita',
-      note: 'Habitualmente respondemos en menos de 24h laborables.',
+      note: '',
     },
   },
 
@@ -602,7 +602,7 @@ export const es = {
       {
         id: 'patologia-mamaria',
         title: 'Patología mamaria',
-        description: 'En la Unidad de Patología Mamaria del Instituto Ginecológico de Alicante combinamos todos los servicios en un ambiente cálido y eficiente, que da soporte y ayuda a la paciente con el objetivo de obtener la excelencia en el diagnóstico y en el tratamiento de las enfermedades mamarias.',
+        description: 'En la Unidad de Patología Mamaria del Instituto Ginecológico de Alicante combinamos todos los servicios en un ambiente cálido, eficiente que da soporte y ayuda a la paciente con el objetivo de obtener la excelencia en el diagnóstico y en el tratamiento de las enfermedades mamarias.',
         items: [],
       },
       {
@@ -874,6 +874,8 @@ export const es = {
   footer: {
     description: 'Instituto Dr. Rafael Fraile Pérez-Cuadrado. Ginecología, obstetricia y ginecología regenerativa en Alicante. Más de 25 años cuidando la salud de la mujer.',
     quickLinks: 'Enlaces rápidos',
+    specialties: 'Especialidades',
+    about: 'Sobre nosotros',
     contact: 'Contacto',
     legal: 'Legal',
     privacy: 'Política de privacidad',
@@ -1232,12 +1234,12 @@ export const es = {
     },
     clinicalTeam: {
       eyebrow: 'Equipo clínico',
-      title: 'Médicas que continúan el mismo criterio',
+      title: 'Comprometidos con tu salud',
       members: [
         {
           slug: 'natalia-golubtsova',
           name: 'Dra. Natalia Golubtsova',
-          role: 'Médica obstetra-ginecóloga',
+          role: 'Ginecóloga y obstetra',
           imageAlt: 'Dra. Natalia Golubtsova',
           bio: 'La Dra. Natalia aporta un perfil que combina visión hormonal, apoyo diagnóstico por ecografía y formación específica en ginecología funcional y regenerativa. Su experiencia en entorno hospitalario y consulta privada se traduce en una atención segura, metódica y cercana.',
           highlights: [
@@ -1251,7 +1253,7 @@ export const es = {
         {
           slug: 'lucia-mascia',
           name: 'Dra. Lucía Mascia',
-          role: 'Ginecobstetra',
+          role: 'Ginecóloga y obstetra',
           imageAlt: 'Dra. Lucía Mascia',
           bio: 'La Dra. Lucía destaca por una combinación de experiencia clínica, trato cercano y una atención muy orientada a acompañarte paso a paso, tanto en ginecología como en obstetricia.',
           highlights: [

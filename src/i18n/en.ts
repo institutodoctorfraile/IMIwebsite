@@ -43,7 +43,7 @@ export const en: TranslationKeys = {
 
     // Hero section
     hero: {
-      eyebrow: 'Instituto Ginecológico de Alicante',
+      eyebrow: 'INSTITUTO DR. RAFAEL FRAILE PÉREZ-CUADRADO',
       title: 'Medical excellence for every stage of your life',
       subtitle: 'Comprehensive women\'s health with thorough assessment, clear diagnosis and a personalized plan.',
       note: 'Over 25 years supporting women in our practice.',
@@ -876,6 +876,8 @@ export const en: TranslationKeys = {
   footer: {
     description: 'Instituto Dr. Rafael Fraile Pérez-Cuadrado. Gynecology, obstetrics and regenerative gynecology in Alicante. Over 25 years caring for women\'s health.',
     quickLinks: 'Quick links',
+    specialties: 'Specialties',
+    about: 'About us',
     contact: 'Contact',
     legal: 'Legal',
     privacy: 'Privacy policy',

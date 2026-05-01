@@ -4,6 +4,8 @@
  * Route: /ginecologia-regenerativa/radiofrecuencia
  */
 
+import { Image } from 'astro:assets';
+import radiofrecuencia1 from '../../assets/images/Radiofrecuencia_1.JPG';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Container from '../../components/ui/Container.astro';
 import Button from '../../components/ui/Button.astro';
@@ -58,21 +60,7 @@ const breadcrumbData = {
       </div>
     </Container>
   </section>
-
-  <!-- Breadcrumb -->
-  <nav aria-label="Breadcrumb" class="bg-gray-50 border-y border-border">
-    <Container>
-      <ol class="flex items-center gap-2 py-3 text-body-sm list-none pl-0">
-        <li><a href={getRoute('home', lang)} class="text-text-secondary hover:text-primary transition-colors">{t.nav.home}</a></li>
-        <li class="text-text-muted">/</li>
-        <li><a href={getRoute('regenerative', lang)} class="text-text-secondary hover:text-primary transition-colors">{t.nav.regenerativeGynecology}</a></li>
-        <li class="text-text-muted">/</li>
-        <li class="text-text font-medium" aria-current="page">{page.title}</li>
-      </ol>
-    </Container>
-  </nav>
-
-  <!-- Cuándo puede ayudarte -->
+<!-- Cuándo puede ayudarte -->
   <section class="py-section lg:py-section-lg bg-white">
     <Container>
       <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -89,14 +77,38 @@ const breadcrumbData = {
             ))}
           </ul>
         </div>
-        <!-- Image placeholder -->
+        <!-- Creative visual: radiofrequency waves -->
         <div class="relative">
-          <div class="aspect-[4/3] bg-gradient-to-br from-primary-50 to-primary-100/50 rounded-2xl overflow-hidden flex items-center justify-center">
-            <div class="text-center p-8">
-              <div class="w-16 h-16 mx-auto mb-4 bg-primary/20 rounded-full flex items-center justify-center">
-                <svg class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+          <div class="aspect-[4/3] bg-gradient-to-br from-primary-50 via-white to-primary-100/40 rounded-2xl overflow-hidden relative">
+            <!-- Concentric pulse rings -->
+            <div class="absolute inset-0 flex items-center justify-center">
+              <span class="absolute w-24 h-24 rounded-full bg-primary/30 animate-ping" style="animation-duration: 2.5s;"></span>
+              <span class="absolute w-40 h-40 rounded-full border-2 border-primary/40"></span>
+              <span class="absolute w-60 h-60 rounded-full border-2 border-primary/25"></span>
+              <span class="absolute w-80 h-80 rounded-full border-2 border-primary/15"></span>
+              <div class="relative w-20 h-20 rounded-full bg-primary text-white flex items-center justify-center shadow-lg">
+                <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 12c0-4.97 4.03-9 9-9m0 18c-4.97 0-9-4.03-9-9m18 0c0 4.97-4.03 9-9 9m9-9c0-4.97-4.03-9-9-9" />
+                  <circle cx="12" cy="12" r="2" fill="currentColor" />
+                </svg>
               </div>
-              <p class="text-body-sm text-text-muted">{formatTranslation(t.common.imagePlaceholder, { name: page.title })}</p>
+            </div>
+
+            <!-- Floating badges -->
+            <div class="absolute top-6 left-6 bg-white rounded-xl shadow-md px-3 py-2 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+              <span class="text-body-sm font-semibold text-text">No invasivo</span>
+            </div>
+            <div class="absolute top-6 right-6 bg-white rounded-xl shadow-md px-3 py-2">
+              <span class="text-body-sm font-semibold text-primary">Sin dolor</span>
+            </div>
+            <div class="absolute bottom-6 left-6 bg-white rounded-xl shadow-md px-3 py-2">
+              <span class="block text-display-sm font-bold text-primary leading-none">40°C</span>
+              <span class="block text-[11px] text-text-secondary mt-0.5">Calor controlado</span>
+            </div>
+            <div class="absolute bottom-6 right-6 bg-white rounded-xl shadow-md px-3 py-2">
+              <span class="block text-display-sm font-bold text-primary leading-none">30'</span>
+              <span class="block text-[11px] text-text-secondary mt-0.5">Por sesión</span>
             </div>
           </div>
         </div>
@@ -115,13 +127,8 @@ const breadcrumbData = {
           ))}
         </div>
         <div class="lg:order-1 relative">
-          <div class="aspect-[4/3] bg-gradient-to-br from-primary-50 to-primary-100/50 rounded-2xl overflow-hidden flex items-center justify-center">
-            <div class="text-center p-8">
-              <div class="w-16 h-16 mx-auto mb-4 bg-primary/20 rounded-full flex items-center justify-center">
-                <svg class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-              </div>
-              <p class="text-body-sm text-text-muted">{formatTranslation(t.common.imagePlaceholder, { name: t.common.imageProcedureLabel })}</p>
-            </div>
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden">
+            <Image src={radiofrecuencia1} alt={page.whatIs.title} class="w-full h-full object-cover" loading="lazy" format="webp" />
           </div>
         </div>
       </div>

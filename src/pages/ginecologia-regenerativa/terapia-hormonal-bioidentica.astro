@@ -4,6 +4,9 @@
  * Route: /ginecologia-regenerativa/terapia-hormonal-bioidentica
  */
 
+import { Image } from 'astro:assets';
+import bio1 from '../../assets/images/Bio1.jpg';
+import bio2 from '../../assets/images/bio2.png';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Container from '../../components/ui/Container.astro';
 import Button from '../../components/ui/Button.astro';
@@ -58,21 +61,7 @@ const breadcrumbData = {
       </div>
     </Container>
   </section>
-
-  <!-- Breadcrumb -->
-  <nav aria-label="Breadcrumb" class="bg-gray-50 border-y border-border">
-    <Container>
-      <ol class="flex items-center gap-2 py-3 text-body-sm list-none pl-0">
-        <li><a href={getRoute('home', lang)} class="text-text-secondary hover:text-primary transition-colors">{t.nav.home}</a></li>
-        <li class="text-text-muted">/</li>
-        <li><a href={getRoute('regenerative', lang)} class="text-text-secondary hover:text-primary transition-colors">{t.nav.regenerativeGynecology}</a></li>
-        <li class="text-text-muted">/</li>
-        <li class="text-text font-medium" aria-current="page">{page.title}</li>
-      </ol>
-    </Container>
-  </nav>
-
-  <!-- Cuándo puede ayudarte -->
+<!-- Cuándo puede ayudarte -->
   <section class="py-section lg:py-section-lg bg-white">
     <Container>
       <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -89,15 +78,10 @@ const breadcrumbData = {
             ))}
           </ul>
         </div>
-        <!-- Image placeholder -->
+        <!-- Image -->
         <div class="relative">
-          <div class="aspect-[4/3] bg-gradient-to-br from-primary-50 to-primary-100/50 rounded-2xl overflow-hidden flex items-center justify-center">
-            <div class="text-center p-8">
-              <div class="w-16 h-16 mx-auto mb-4 bg-primary/20 rounded-full flex items-center justify-center">
-                <svg class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-              </div>
-              <p class="text-body-sm text-text-muted">{formatTranslation(t.common.imagePlaceholder, { name: page.title })}</p>
-            </div>
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden">
+            <Image src={bio1} alt={page.title} class="w-full h-full object-cover" loading="lazy" format="webp" />
           </div>
         </div>
       </div>
@@ -115,13 +99,8 @@ const breadcrumbData = {
           ))}
         </div>
         <div class="lg:order-1 relative">
-          <div class="aspect-[4/3] bg-gradient-to-br from-primary-50 to-primary-100/50 rounded-2xl overflow-hidden flex items-center justify-center">
-            <div class="text-center p-8">
-              <div class="w-16 h-16 mx-auto mb-4 bg-primary/20 rounded-full flex items-center justify-center">
-                <svg class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-              </div>
-              <p class="text-body-sm text-text-muted">{formatTranslation(t.common.imagePlaceholder, { name: t.common.imageProcedureLabel })}</p>
-            </div>
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden">
+            <Image src={bio2} alt={page.whatIs.title} class="w-full h-full object-cover" loading="lazy" format="webp" />
           </div>
         </div>
       </div>

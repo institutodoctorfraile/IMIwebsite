@@ -27,12 +27,12 @@ const t = getTranslations(lang);
       </div>
 
       <!-- Content -->
-      <div class="relative px-6 py-12 md:px-12 md:py-16 lg:px-16 lg:py-20 text-center">
-        <h2 class="text-display-sm md:text-display text-white font-bold mb-4 max-w-2xl mx-auto text-balance">
+      <div class="relative px-6 py-10 md:px-12 md:py-12 lg:px-16 lg:py-14 text-center">
+        <h2 class="text-display-sm md:text-display text-white font-bold mb-3 max-w-2xl mx-auto text-balance">
           {t.home.cta.title}
         </h2>
-        
-        <p class="text-body-lg text-white/90 mb-8 max-w-xl mx-auto">
+
+        <p class="text-body-lg text-white/90 mb-6 max-w-3xl mx-auto text-balance">
           {t.home.cta.description}
         </p>
         
@@ -60,9 +60,11 @@ const t = getTranslations(lang);
           </a>
         </div>
         
-        <p class="mt-6 text-body-sm text-white/70">
-          {t.home.cta.note}
-        </p>
+        {t.home.cta.note && (
+          <p class="mt-6 text-body-sm text-white/70">
+            {t.home.cta.note}
+          </p>
+        )}
       </div>
     </div>
   </Container>
