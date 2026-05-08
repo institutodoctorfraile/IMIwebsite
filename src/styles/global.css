@@ -119,12 +119,12 @@
     @apply text-body leading-relaxed;
   }
   
-  /* Links */
-  a {
+  /* Links — :where() keeps specificity at 0 so utility classes always win */
+  :where(a) {
     @apply text-primary transition-colors duration-fast;
   }
-  
-  a:hover {
+
+  :where(a):hover {
     @apply text-primary-dark;
   }
   

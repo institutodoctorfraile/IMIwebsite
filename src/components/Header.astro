@@ -5,8 +5,6 @@
  * Sticky header with minimal CLS impact
  */
 
-import { Image } from 'astro:assets';
-import logo from '../assets/logos/logo.png';
 import Container from './ui/Container.astro';
 import Button from './ui/Button.astro';
 import {
@@ -56,13 +54,10 @@ const langOptions = Object.entries(languages).map(([code, info]) => ({
 
 <header class="sticky top-0 z-[1000] bg-white border-b border-border/50">
   <Container>
-    <nav class="flex items-center justify-between h-16 md:h-20 relative" aria-label="Main navigation">
+    <nav class="flex items-center justify-between h-20 md:h-24 relative" aria-label="Main navigation">
       <!-- Logo -->
-      <a href={getRoute('home', lang)} class="flex items-center gap-3 text-text hover:text-primary transition-colors">
-        <Image src={logo} alt="Instituto Ginecológico de Alicante" class="h-10 md:h-12 w-auto" />
-        <span class="hidden sm:block text-body-sm text-text-secondary">
-          Instituto Ginecológico<br class="hidden lg:block" /> de Alicante
-        </span>
+      <a href={getRoute('home', lang)} class="flex items-center text-text hover:text-primary transition-colors">
+        <img src="/LOGO%20IRF-text.svg" alt="Instituto Dr. Rafael Fraile Pérez-Cuadrado" class="h-14 md:h-16 lg:h-20 w-auto" />
       </a>
 
       <!-- Desktop Navigation -->
@@ -175,8 +170,10 @@ const langOptions = Object.entries(languages).map(([code, info]) => ({
   >
     <div class="flex flex-col h-full">
       <!-- Mobile Header -->
-      <div class="flex items-center justify-between h-16 px-4 border-b border-border">
-        <span class="text-xl font-bold text-text">IGA</span>
+      <div class="flex items-center justify-between h-20 px-4 border-b border-border">
+        <a href={getRoute('home', lang)} class="flex items-center" aria-label="Inicio">
+          <img src="/LOGO%20IRF-text.svg" alt="Instituto Dr. Rafael Fraile Pérez-Cuadrado" class="h-12 w-auto" />
+        </a>
         <button 
           class="p-2 -mr-2 text-text hover:text-primary transition-colors"
           aria-label={t.common.closeMenu}

@@ -1,0 +1,173 @@
+---
+/**
+ * Cookies Policy - Spanish
+ * Route: /cookies
+ */
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Container from '../components/ui/Container.astro';
+
+const lang = 'es';
+const title = 'Política de cookies';
+const description = 'Información sobre el uso de cookies y servicios de análisis en el sitio web de Instituto Ginecológico de Alicante S.L.';
+
+const cookies = [
+  {
+    name: '_gat',
+    provider: 'Google Inc.',
+    type: 'Rendimiento',
+    purpose: 'Google Universal Analytics instala estas cookies para acelerar la tasa de solicitud y limitar la recopilación de datos en sitios de alto tráfico.',
+    duration: '1 minuto',
+  },
+  {
+    name: '_gid',
+    provider: 'Google Inc.',
+    type: 'Analítica',
+    purpose: 'Esta cookie es instalada por Google Analytics. Se utiliza para almacenar información sobre cómo los visitantes usan un sitio web y ayuda a crear un informe analítico de cómo está funcionando el sitio. Los datos recopilados, incluido el número de visitantes, la fuente de donde provienen y las páginas, se muestran de forma anónima.',
+    duration: '1 día',
+  },
+  {
+    name: '_ga',
+    provider: 'Google Inc.',
+    type: 'Analítica',
+    purpose: 'Esta cookie es instalada por Google Analytics. Se utiliza para calcular los datos de visitantes, sesiones y campañas y realizar un seguimiento del uso del sitio para el informe de análisis. Almacena información de forma anónima y asigna un número generado aleatoriamente para identificar visitantes únicos.',
+    duration: '2 años',
+  },
+  {
+    name: 'cookielawinfo-checkbox-analytics',
+    provider: 'Propia',
+    type: 'Técnica',
+    purpose: 'Esta cookie se establece mediante el complemento de consentimiento de cookies de GDPR. Se utiliza para recordar el consentimiento del usuario para las cookies en la categoría «Analítica».',
+    duration: '1 año',
+  },
+];
+
+const browsers = [
+  { name: 'Chrome', href: 'https://support.google.com/chrome/answer/95647' },
+  { name: 'Safari', href: 'https://support.apple.com/es-es/guide/safari/sfri11471/mac' },
+  { name: 'Firefox', href: 'https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias' },
+  { name: 'Edge', href: 'https://support.microsoft.com/es-es/microsoft-edge/eliminar-las-cookies-en-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09' },
+];
+---
+
+<BaseLayout title={title} description={description} lang={lang} robots="noindex, follow">
+  <section class="py-section lg:py-section-lg bg-white">
+    <Container>
+      <div class="max-w-3xl mx-auto">
+        <header class="mb-12">
+          <p class="text-primary font-medium text-body-sm uppercase tracking-wider mb-3">Legal</p>
+          <h1 class="text-display-sm md:text-display font-bold text-text mb-4 text-balance">
+            Política de cookies
+          </h1>
+          <p class="text-body-lg text-text-secondary mb-4">
+            Queremos ofrecerte una agradable experiencia en línea con nuestro sitio web y en el contexto de la normativa vigente en materia de protección de datos y e-privacy, servicios de análisis web y complementos de redes sociales.
+          </p>
+          <p class="text-body text-text-secondary mb-4">
+            Para este propósito, utilizamos diferentes cookies y servicios para garantizar la funcionalidad de nuestro sitio web y hacer que sea lo más informativo y fácil de utilizar por ti. Es importante para nosotros que te sientas cómodo navegando por nuestro sitio web, y por esta razón su optimización continua tiene una alta prioridad para INSTITUTO GINECOLÓGICO DE ALICANTE S.L.
+          </p>
+          <p class="text-body text-text-secondary mb-4">
+            Estos servicios incluyen, por ejemplo, campos de formulario previamente rellenados, para que no tengas que volver a ingresar todos los datos y puedas guardar tu configuración. También es importante para nosotros que veas el contenido en nuestro sitio web que realmente te interese y que facilite tu experiencia en línea.
+          </p>
+          <p class="text-body text-text-secondary">
+            Sin embargo, no perdemos de vista la gestión cuidadosa de tus datos personales. Por lo tanto, a continuación encontrarás información detallada sobre el uso de las cookies y los servicios que utilizamos en este sitio web. Por supuesto, podrás gestionarlas haciendo click en el enlace «Configuración cookies» que encontrarás en el pie de la página.
+          </p>
+        </header>
+
+        <div class="legal-content space-y-10">
+          <section>
+            <h2 class="text-heading font-bold text-text mb-4">1. Cookies funcionales</h2>
+            <p class="text-body text-text-secondary mb-4">
+              Las cookies son pequeños archivos de texto que se colocan en tu historial de navegación y se utilizan para reconstruir las configuraciones que realizaste durante tu última visita.
+            </p>
+            <p class="text-body text-text-secondary mb-4">
+              Estas cookies funcionales garantizan que nuestro sitio web funcione correctamente y se almacenan hasta un máximo de 12 meses, tras lo cual se eliminan automáticamente.
+            </p>
+            <p class="text-body text-text-secondary mb-4">Como ejemplo, las siguientes funciones son posibles con estas cookies:</p>
+            <ul class="space-y-2 text-body text-text-secondary mb-4 list-disc pl-6">
+              <li>Guardar presets como idioma, ubicación, número de resultados de búsqueda, etc.</li>
+              <li>Reconocer la configuración de tu navegador para hacer que nuestro sitio web sea óptimo en tu pantalla.</li>
+              <li>La detección del mal uso de nuestros sitios web y servicios, por ejemplo, registrando múltiples intentos de inicio de sesión consecutivos y fallidos.</li>
+            </ul>
+            <p class="text-body text-text-secondary">
+              Tienes la opción de configurar tus cookies de forma fácil y rápida en el apartado «Configuración».
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-heading font-bold text-text mb-4">2. Servicios de análisis para fines estadísticos</h2>
+            <p class="text-body text-text-secondary mb-4">
+              Para determinar qué contenido de nuestro sitio web es más interesante para ti, medimos continuamente el número de visitantes y el contenido más visto. Usamos los datos anónimos recopilados con fines estadísticos, por ejemplo:
+            </p>
+            <ul class="space-y-2 text-body text-text-secondary mb-4 list-disc pl-6">
+              <li>Registrar el número de visitantes a nuestros sitios web.</li>
+              <li>Registrar el tiempo de visita respectivo de los visitantes de nuestro sitio web.</li>
+              <li>Registrar el orden de visita de diferentes sitios web.</li>
+              <li>Evaluar qué partes de nuestro sitio web necesitan ser adaptadas.</li>
+              <li>La optimización del sitio web.</li>
+            </ul>
+            <p class="text-body text-text-secondary">
+              Utilizamos los siguientes servicios con fines estadísticos, que puedes desactivar en la configuración de cookies.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-heading font-bold text-text mb-4">3. Servicios de marketing</h2>
+            <p class="text-body text-text-secondary mb-4">
+              Usamos servicios de marketing para mostrarte ofertas propias. Además, nos gustaría mostrarte solo publicidad que realmente te interese. Para este propósito, utilizamos el llamado redireccionamiento para publicidad, adaptado a tus intereses en nuestro sitio web. Las cookies almacenadas temporalmente permiten reconocer a los visitantes de nuestro sitio web bajo un seudónimo y mostrar solo los productos que pueden interesar a nuestros visitantes.
+            </p>
+            <p class="text-body text-text-secondary mb-4">
+              Estas cookies no almacenan datos personales o confidenciales. Los datos recopilados no se fusionarán con los datos que nos permitirán identificar a nuestros visitantes bajo ningún concepto.
+            </p>
+            <p class="text-body text-text-secondary mb-4">Estos servicios, por ejemplo, nos sirven para:</p>
+            <ul class="space-y-2 text-body text-text-secondary list-disc pl-6">
+              <li>Medir el éxito de las medidas publicitarias utilizadas.</li>
+              <li>Rastrear qué anuncios ya has visto para evitar que se vuelvan a mostrar.</li>
+              <li>Ver el número de páginas vistas en nuestro sitio web.</li>
+              <li>Entender las búsquedas internas.</li>
+              <li>Ver vistas de páginas de productos.</li>
+              <li>Reconocer tu estado de inicio de sesión.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-heading font-bold text-text mb-4">4. Cuadro resumen de cookies utilizadas en el sitio web</h2>
+            <div class="space-y-4">
+              {cookies.map((c) => (
+                <article class="rounded-xl border border-border bg-gray-50 p-5 sm:p-6">
+                  <header class="flex flex-wrap items-center gap-2 mb-4 pb-4 border-b border-border">
+                    <code class="text-body-sm font-mono font-semibold text-text bg-white border border-border rounded px-2 py-1">{c.name}</code>
+                    <span class="inline-flex items-center text-[12px] font-medium text-primary bg-primary/10 rounded-full px-2.5 py-1">{c.type}</span>
+                    <span class="inline-flex items-center text-[12px] font-medium text-text-secondary bg-white border border-border rounded-full px-2.5 py-1">{c.duration}</span>
+                    <span class="inline-flex items-center text-[12px] font-medium text-text-secondary bg-white border border-border rounded-full px-2.5 py-1">{c.provider}</span>
+                  </header>
+                  <p class="text-body-sm text-text-secondary leading-relaxed">{c.purpose}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section>
+            <h2 class="text-heading font-bold text-text mb-4">5. Procedimiento de oposición a la instalación de las cookies</h2>
+            <p class="text-body text-text-secondary mb-4">
+              El usuario siempre tendrá la posibilidad de decidir si mantiene las cookies habilitadas o no en su ordenador, a través del gestor de cookies habilitado para este fin.
+            </p>
+            <p class="text-body text-text-secondary mb-4">
+              El usuario que quiera deshabilitar las cookies aceptadas hasta ahora puede hacerlo desde la sección de preferencias de su navegador de Internet. Dependiendo del navegador, deberá seguir determinados pasos para modificar la configuración de las cookies en su ordenador:
+            </p>
+            <ul class="space-y-2 text-body text-text-secondary list-disc pl-6">
+              {browsers.map((b) => (
+                <li>
+                  <a href={b.href} target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">{b.name}</a>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <p class="text-body-sm text-text-muted pt-6 border-t border-border">
+            Última actualización: 23 de marzo de 2023.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>
