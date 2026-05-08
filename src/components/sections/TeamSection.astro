@@ -30,7 +30,7 @@ const portraits = {
 <section id="equipo" class="py-section lg:py-section-lg bg-white">
   <Container>
     <!-- Header -->
-    <div class="text-center mb-12 lg:mb-16 max-w-3xl mx-auto">
+    <div class="text-center mb-8 md:mb-12 lg:mb-16 max-w-3xl mx-auto">
       <SectionHeading
         eyebrow={t.home.team.eyebrow}
         title={t.home.team.title}
@@ -41,7 +41,7 @@ const portraits = {
     </div>
 
     <!-- Team Grid -->
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
       {t.home.team.members.map((member) => {
         const portrait = portraits[member.slug as keyof typeof portraits];
         return (
@@ -81,7 +81,7 @@ const portraits = {
     </div>
 
     <!-- CTAs -->
-    <div class="mt-14 flex flex-col sm:flex-row gap-4 justify-center">
+    <div class="mt-10 md:mt-14 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
       <Button href={getRoute('team', lang)} variant="primary" size="lg">
         {t.home.team.cta}
       </Button>

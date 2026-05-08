@@ -20,7 +20,7 @@ const t = getTranslations(lang);
 <section id="proceso" class="py-section lg:py-section-lg bg-white">
   <Container>
     <!-- Header -->
-    <div class="text-center mb-12 lg:mb-16">
+    <div class="text-center mb-8 md:mb-12 lg:mb-16">
       <SectionHeading
         eyebrow={t.home.process.eyebrow}
         title={t.home.process.title}
@@ -34,21 +34,21 @@ const t = getTranslations(lang);
       <!-- Connecting line (desktop only) -->
       <div class="hidden lg:block absolute top-10 left-[calc(16.667%+1.25rem)] right-[calc(16.667%+1.25rem)] h-px border-t-2 border-dashed border-primary/30" aria-hidden="true"></div>
 
-      <div class="grid lg:grid-cols-3 gap-10 lg:gap-8">
+      <div class="grid lg:grid-cols-3 gap-8 md:gap-10 lg:gap-8">
         {t.home.process.steps.map((step: { number: string; title: string; description: string }, index: number) => (
           <div class="relative flex flex-col items-center text-center">
             <!-- Connecting line (mobile only) -->
             {index < t.home.process.steps.length - 1 && (
-              <div class="lg:hidden absolute top-20 left-1/2 -translate-x-1/2 w-px h-10 border-l-2 border-dashed border-primary/30" aria-hidden="true"></div>
+              <div class="lg:hidden absolute top-16 md:top-20 left-1/2 -translate-x-1/2 w-px h-8 md:h-10 border-l-2 border-dashed border-primary/30" aria-hidden="true"></div>
             )}
 
             <!-- Number circle -->
-            <div class="relative z-10 w-20 h-20 mb-6 bg-white border-2 border-primary rounded-full flex items-center justify-center shadow-sm">
-              <span class="text-display-sm font-bold text-primary">{step.number}</span>
+            <div class="relative z-10 w-16 h-16 md:w-20 md:h-20 mb-4 md:mb-6 bg-white border-2 border-primary rounded-full flex items-center justify-center shadow-sm">
+              <span class="text-heading md:text-display-sm font-bold text-primary">{step.number}</span>
             </div>
 
             <!-- Content -->
-            <h3 class="text-subheading font-semibold text-text mb-3">
+            <h3 class="text-subheading font-semibold text-text mb-2 md:mb-3">
               {step.title}
             </h3>
             <p class="text-body-sm text-text-secondary leading-relaxed max-w-xs">

@@ -41,18 +41,19 @@ module.exports = {
         // Custom scale for better hierarchy
         'display-lg': ['4rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
         'display': ['3rem', { lineHeight: '1.15', letterSpacing: '-0.02em' }],
-        'display-sm': ['2.25rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
-        'heading': ['1.875rem', { lineHeight: '1.3' }],
-        'subheading': ['1.25rem', { lineHeight: '1.4' }],
-        'body-lg': ['1.125rem', { lineHeight: '1.6' }],
+        'display-sm': ['2rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+        'display-xs': ['1.625rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+        'heading': ['1.625rem', { lineHeight: '1.3' }],
+        'subheading': ['1.125rem', { lineHeight: '1.4' }],
+        'body-lg': ['1.0625rem', { lineHeight: '1.6' }],
         'body': ['1rem', { lineHeight: '1.6' }],
         'body-sm': ['0.875rem', { lineHeight: '1.5' }],
         'caption': ['0.75rem', { lineHeight: '1.4' }],
       },
       spacing: {
         // Section spacing
-        'section': '5rem',
-        'section-lg': '7rem',
+        'section': '3rem',
+        'section-lg': '6rem',
       },
       maxWidth: {
         'container': '1280px',

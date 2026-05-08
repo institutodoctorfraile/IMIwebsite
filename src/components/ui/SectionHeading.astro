@@ -40,9 +40,9 @@ const alignStyles = {
 
 // Heading size based on level
 const headingSizes = {
-  1: 'text-display-lg md:text-display',
-  2: 'text-display-sm md:text-display-sm',
-  3: 'text-heading',
+  1: 'text-display-sm sm:text-display md:text-display lg:text-display-lg',
+  2: 'text-display-xs sm:text-display-sm md:text-display-sm',
+  3: 'text-subheading sm:text-heading',
   4: 'text-subheading',
   5: 'text-body-lg font-semibold',
   6: 'text-body font-semibold',
@@ -67,7 +67,7 @@ const containerStyles = [
   </HeadingTag>
   
   {description && (
-    <p class="text-body-lg text-text-secondary leading-relaxed">
+    <p class="text-body sm:text-body-lg text-text-secondary leading-relaxed">
       {description}
     </p>
   )}

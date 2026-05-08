@@ -54,10 +54,10 @@ const langOptions = Object.entries(languages).map(([code, info]) => ({
 
 <header class="sticky top-0 z-[1000] bg-white border-b border-border/50">
   <Container>
-    <nav class="flex items-center justify-between h-20 md:h-24 relative" aria-label="Main navigation">
+    <nav class="flex items-center justify-between h-16 md:h-20 lg:h-24 relative" aria-label="Main navigation">
       <!-- Logo -->
       <a href={getRoute('home', lang)} class="flex items-center text-text hover:text-primary transition-colors">
-        <img src="/LOGO%20IRF-text.svg" alt="Instituto Dr. Rafael Fraile Pérez-Cuadrado" class="h-14 md:h-16 lg:h-20 w-auto" />
+        <img src="/LOGO%20IRF-text.svg" alt="Instituto Dr. Rafael Fraile Pérez-Cuadrado" class="h-10 sm:h-12 md:h-14 lg:h-20 w-auto" />
       </a>
 
       <!-- Desktop Navigation -->
@@ -170,9 +170,9 @@ const langOptions = Object.entries(languages).map(([code, info]) => ({
   >
     <div class="flex flex-col h-full">
       <!-- Mobile Header -->
-      <div class="flex items-center justify-between h-20 px-4 border-b border-border">
+      <div class="flex items-center justify-between h-16 px-4 border-b border-border">
         <a href={getRoute('home', lang)} class="flex items-center" aria-label="Inicio">
-          <img src="/LOGO%20IRF-text.svg" alt="Instituto Dr. Rafael Fraile Pérez-Cuadrado" class="h-12 w-auto" />
+          <img src="/LOGO%20IRF-text.svg" alt="Instituto Dr. Rafael Fraile Pérez-Cuadrado" class="h-10 w-auto" />
         </a>
         <button 
           class="p-2 -mr-2 text-text hover:text-primary transition-colors"
