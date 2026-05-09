@@ -6,6 +6,7 @@
 
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Container from '../components/ui/Container.astro';
+import { SITE, SITE_LINKS } from '../config/site';
 
 const lang = 'es';
 const title = 'Aviso legal';
@@ -38,11 +39,11 @@ const description = 'Información legal del sitio web de Instituto Ginecológico
               <li><strong class="text-text">Domicilio social:</strong> Calle Madre Teresa de Calcuta 4, 03015 Alicante (España)</li>
               <li>
                 <strong class="text-text">Correo electrónico:</strong>
-                <a href="mailto:info@institutomaternoinfantil.es" class="text-primary hover:underline">info@institutomaternoinfantil.es</a>
+                <a href={`mailto:${SITE.contact.email}`} class="text-primary hover:underline">{SITE.contact.email}</a>
               </li>
               <li>
                 <strong class="text-text">Teléfono de contacto:</strong>
-                <a href="tel:+34965248558" class="text-primary hover:underline">+34 965 248 558</a>
+                <a href={SITE_LINKS.tel} class="text-primary hover:underline">{SITE.contact.phoneDisplay}</a>
               </li>
               <li>
                 <strong class="text-text">Nombre de dominio:</strong>

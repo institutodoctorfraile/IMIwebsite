@@ -10,6 +10,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 import CookieBanner from '../components/CookieBanner.astro';
+import { SITE } from '../config/site';
 import '../styles/global.css';
 import { 
   type Lang, 
@@ -48,7 +49,7 @@ const {
   lang = defaultLang,
   pageKey,
   canonical,
-  ogImage = '/og-default.jpg', // TODO: Add default OG image
+  ogImage = '/og-default.jpg',
   ogType = 'website',
   robots = 'index, follow',
   structuredData,
@@ -57,7 +58,7 @@ const {
 const t = getTranslations(lang);
 const siteName = t.meta.siteName;
 const fullTitle = `${title} | ${siteName}`;
-const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://institutoginecologicoalicante.com';
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || SITE.url;
 const currentPath = Astro.url.pathname;
 const canonicalUrl = canonical || `${siteUrl}${currentPath}`;
 
@@ -78,37 +79,29 @@ const defaultStructuredData = {
   '@context': 'https://schema.org',
   '@type': 'MedicalBusiness',
   '@id': `${siteUrl}/#organization`,
-  name: 'Instituto Dr. Rafael Fraile Pérez-Cuadrado',
-  alternateName: 'IGA',
+  name: SITE.name,
+  alternateName: SITE.shortName,
   description: t.meta.siteDescription,
   url: siteUrl,
-  telephone: '+34965248558',
-  email: 'info@institutomaternoinfantil.es',
+  telephone: SITE.contact.phone,
+  email: SITE.contact.email,
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Avda. Denia, 103',
-    addressLocality: 'Alicante',
-    addressRegion: 'Comunidad Valenciana',
-    postalCode: '03015',
-    addressCountry: 'ES',
+    ...SITE.address,
   },
   geo: {
     '@type': 'GeoCoordinates',
-    latitude: '38.3565',
-    longitude: '-0.4602',
+    ...SITE.geo,
   },
   openingHoursSpecification: {
     '@type': 'OpeningHoursSpecification',
-    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-    opens: '09:00',
-    closes: '20:00',
+    dayOfWeek: SITE.hours.days,
+    opens: SITE.hours.opens,
+    closes: SITE.hours.closes,
   },
   priceRange: '$$',
   image: `${siteUrl}${optimizedPortrait.src}`,
-  sameAs: [
-    'https://www.instagram.com/institutodrrafaelfraile/',
-    'https://www.facebook.com/institutomaternoinfantilalicante',
-  ],
+  sameAs: [SITE.social.instagram, SITE.social.facebook],
   medicalSpecialty: [
     'http://schema.org/Gynecologic',
   ],
@@ -166,13 +159,14 @@ const allStructuredData = structuredData
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/LOGO%20Biege%20IRF-1.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     
     <!-- Theme Color -->
     <meta name="theme-color" content="#3D949B" />
     
     <!-- Structured Data -->
     {allStructuredData.map((data) => (
-      <script type="application/ld+json" set:html={JSON.stringify(data)} />
+      <script type="application/ld+json" is:inline set:html={JSON.stringify(data)} />
     ))}
     
     <!-- Additional head content from pages -->

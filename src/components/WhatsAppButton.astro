@@ -5,6 +5,7 @@
  */
 
 import { type Lang, defaultLang, getTranslations } from '../i18n';
+import { SITE_LINKS } from '../config/site';
 
 interface Props {
   lang?: Lang;
@@ -15,7 +16,7 @@ const t = getTranslations(lang);
 ---
 
 <a
-  href="https://wa.me/34652582768"
+  href={SITE_LINKS.whatsapp}
   target="_blank"
   rel="noopener noreferrer"
   aria-label={t.common.whatsappAriaLabel}
