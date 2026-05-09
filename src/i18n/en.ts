@@ -78,7 +78,7 @@ export const en: TranslationKeys = {
         },
       },
       viewMore: 'Learn more',
-      note: 'Not sure where to start? Tell us about your case and we\'ll guide you',
+      note: 'Not sure where to start? tell us about your case and we\'ll guide you',
     },
 
     // Process block (Bloque 3)
