@@ -220,6 +220,15 @@ const langOptions = Object.entries(languages).map(([code, info]) => ({
               </a>
             </li>
           ))}
+          <li>
+            <button
+              type="button"
+              data-cookie-settings
+              class="text-body-sm text-text-secondary hover:text-primary transition-colors bg-transparent border-0 p-0 cursor-pointer"
+            >
+              {t.footer.cookieSettings}
+            </button>
+          </li>
         </ul>
       </div>
     </div>

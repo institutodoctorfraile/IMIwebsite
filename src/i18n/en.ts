@@ -885,6 +885,36 @@ export const en: TranslationKeys = {
     cookies: 'Cookie policy',
     copyright: '© {year} Instituto Dr. Rafael Fraile Pérez-Cuadrado. All rights reserved.',
     whatsappNote: 'Have a quick question? Send us a WhatsApp message and we\'ll point you in the right direction.',
+    cookieSettings: 'Cookie settings',
+  },
+
+  // Cookie consent
+  cookies: {
+    title: 'Your privacy matters',
+    description: 'We use first and third-party cookies to make the site work, measure its usage and improve your experience. You can accept all, reject all or customize. Necessary cookies are always on.',
+    moreInfo: 'More info',
+    acceptAll: 'Accept all',
+    rejectAll: 'Reject all',
+    customize: 'Customize',
+    save: 'Save preferences',
+    panelTitle: 'Cookie preferences',
+    panelDescription: 'Toggle the cookie categories. Changes apply once you save.',
+    close: 'Close',
+    categories: {
+      necessary: {
+        title: 'Necessary',
+        description: 'Essential for the site to work. They cannot be disabled.',
+        always: 'Always on',
+      },
+      analytics: {
+        title: 'Analytics',
+        description: 'Let us measure aggregate site usage (Google Analytics).',
+      },
+      marketing: {
+        title: 'Marketing',
+        description: 'Used to measure campaigns and attribution (Meta Pixel).',
+      },
+    },
   },
 
   // Treatment: Fractional CO2 Laser

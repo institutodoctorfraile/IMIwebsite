@@ -883,6 +883,36 @@ export const es = {
     cookies: 'Política de cookies',
     copyright: '© {year} Instituto Dr. Rafael Fraile Pérez-Cuadrado. Todos los derechos reservados.',
     whatsappNote: '¿Tienes una duda rápida? Escríbenos por WhatsApp y te orientamos.',
+    cookieSettings: 'Configurar cookies',
+  },
+
+  // Cookie consent
+  cookies: {
+    title: 'Tu privacidad importa',
+    description: 'Usamos cookies propias y de terceros para que el sitio funcione, medir su uso y mejorar la experiencia. Puedes aceptar todas, rechazarlas o configurarlas. Las necesarias siempre están activas.',
+    moreInfo: 'Más información',
+    acceptAll: 'Aceptar todo',
+    rejectAll: 'Rechazar todo',
+    customize: 'Configurar',
+    save: 'Guardar preferencias',
+    panelTitle: 'Preferencias de cookies',
+    panelDescription: 'Activa o desactiva las categorías de cookies. Los cambios se aplican al guardar.',
+    close: 'Cerrar',
+    categories: {
+      necessary: {
+        title: 'Necesarias',
+        description: 'Imprescindibles para el funcionamiento del sitio. No se pueden desactivar.',
+        always: 'Siempre activas',
+      },
+      analytics: {
+        title: 'Analíticas',
+        description: 'Nos permiten medir el uso del sitio de forma agregada (Google Analytics).',
+      },
+      marketing: {
+        title: 'Marketing',
+        description: 'Sirven para medir campañas y atribución (Meta Pixel).',
+      },
+    },
   },
 
   // Treatment: Láser CO2 Fraccionado

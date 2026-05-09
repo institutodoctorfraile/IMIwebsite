@@ -1,0 +1,295 @@
+---
+/**
+ * CookieBanner
+ * GDPR-friendly cookie consent banner with preferences panel.
+ * Persists to localStorage. Dispatches `cookieconsent` events for scripts to react.
+ */
+
+import { type Lang, getTranslations } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getTranslations(lang);
+const c = t.cookies;
+---
+
+<div
+  id="cookie-banner"
+  class="fixed inset-x-0 bottom-0 z-[1100] hidden p-3 sm:p-4 md:p-6"
+  role="dialog"
+  aria-modal="false"
+  aria-labelledby="cookie-banner-title"
+  aria-describedby="cookie-banner-desc"
+>
+  <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-2xl border border-border overflow-hidden">
+    <div class="p-5 sm:p-6">
+      <h2 id="cookie-banner-title" class="text-subheading font-semibold text-text mb-2">
+        {c.title}
+      </h2>
+      <p id="cookie-banner-desc" class="text-body-sm text-text-secondary leading-relaxed mb-4">
+        {c.description}{' '}
+        <a href="/cookies" class="text-primary hover:underline font-medium">{c.moreInfo}</a>
+      </p>
+      <div class="flex flex-col sm:flex-row gap-2 sm:gap-3">
+        <button
+          type="button"
+          data-cookie-action="accept-all"
+          class="inline-flex items-center justify-center font-medium rounded-button px-5 py-2.5 text-body bg-primary text-white hover:bg-primary-dark transition-colors"
+        >
+          {c.acceptAll}
+        </button>
+        <button
+          type="button"
+          data-cookie-action="reject-all"
+          class="inline-flex items-center justify-center font-medium rounded-button px-5 py-2.5 text-body bg-gray-100 text-text hover:bg-gray-200 transition-colors"
+        >
+          {c.rejectAll}
+        </button>
+        <button
+          type="button"
+          data-cookie-action="open-panel"
+          class="inline-flex items-center justify-center font-medium rounded-button px-5 py-2.5 text-body bg-transparent text-primary border-2 border-primary hover:bg-primary hover:text-white transition-colors"
+        >
+          {c.customize}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Preferences Panel -->
+<div
+  id="cookie-panel"
+  class="fixed inset-0 z-[1200] hidden"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="cookie-panel-title"
+>
+  <div class="absolute inset-0 bg-black/50" data-cookie-action="close-panel" aria-hidden="true"></div>
+  <div class="relative h-full w-full flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-white w-full sm:max-w-lg rounded-t-2xl sm:rounded-2xl shadow-2xl max-h-[90vh] overflow-y-auto">
+      <div class="sticky top-0 bg-white border-b border-border flex items-center justify-between p-5">
+        <h2 id="cookie-panel-title" class="text-subheading font-semibold text-text">
+          {c.panelTitle}
+        </h2>
+        <button
+          type="button"
+          data-cookie-action="close-panel"
+          class="p-1 -mr-1 text-text-muted hover:text-text transition-colors"
+          aria-label={c.close}
+        >
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="p-5 space-y-4">
+        <p class="text-body-sm text-text-secondary">{c.panelDescription}</p>
+
+        <!-- Necessary -->
+        <div class="rounded-xl border border-border p-4 bg-gray-50">
+          <div class="flex items-center justify-between gap-3 mb-1.5">
+            <h3 class="text-body font-semibold text-text">{c.categories.necessary.title}</h3>
+            <span class="text-caption font-medium text-primary bg-primary/10 rounded-full px-2.5 py-1">
+              {c.categories.necessary.always}
+            </span>
+          </div>
+          <p class="text-body-sm text-text-secondary">{c.categories.necessary.description}</p>
+        </div>
+
+        <!-- Analytics -->
+        <div class="rounded-xl border border-border p-4">
+          <div class="flex items-center justify-between gap-3 mb-1.5">
+            <h3 class="text-body font-semibold text-text">{c.categories.analytics.title}</h3>
+            <label class="cookie-toggle">
+              <input type="checkbox" data-cookie-toggle="analytics" />
+              <span class="cookie-toggle-track"><span class="cookie-toggle-thumb"></span></span>
+            </label>
+          </div>
+          <p class="text-body-sm text-text-secondary">{c.categories.analytics.description}</p>
+        </div>
+
+        <!-- Marketing -->
+        <div class="rounded-xl border border-border p-4">
+          <div class="flex items-center justify-between gap-3 mb-1.5">
+            <h3 class="text-body font-semibold text-text">{c.categories.marketing.title}</h3>
+            <label class="cookie-toggle">
+              <input type="checkbox" data-cookie-toggle="marketing" />
+              <span class="cookie-toggle-track"><span class="cookie-toggle-thumb"></span></span>
+            </label>
+          </div>
+          <p class="text-body-sm text-text-secondary">{c.categories.marketing.description}</p>
+        </div>
+      </div>
+      <div class="sticky bottom-0 bg-white border-t border-border p-5 flex flex-col sm:flex-row gap-2 sm:gap-3">
+        <button
+          type="button"
+          data-cookie-action="save"
+          class="inline-flex items-center justify-center font-medium rounded-button px-5 py-2.5 text-body bg-primary text-white hover:bg-primary-dark transition-colors flex-1"
+        >
+          {c.save}
+        </button>
+        <button
+          type="button"
+          data-cookie-action="reject-all"
+          class="inline-flex items-center justify-center font-medium rounded-button px-5 py-2.5 text-body bg-gray-100 text-text hover:bg-gray-200 transition-colors"
+        >
+          {c.rejectAll}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .cookie-toggle {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+  .cookie-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .cookie-toggle-track {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: #d1d5db;
+    border-radius: 9999px;
+    transition: background-color 200ms;
+  }
+  .cookie-toggle-thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 9999px;
+    transition: transform 200ms;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  }
+  .cookie-toggle input:checked + .cookie-toggle-track {
+    background-color: #3D949B;
+  }
+  .cookie-toggle input:checked + .cookie-toggle-track .cookie-toggle-thumb {
+    transform: translateX(20px);
+  }
+  .cookie-toggle input:focus-visible + .cookie-toggle-track {
+    outline: 2px solid #3D949B;
+    outline-offset: 2px;
+  }
+</style>
+
+<script>
+  type Consent = { necessary: true; analytics: boolean; marketing: boolean; ts: number; v: number };
+  const STORAGE_KEY = 'iga.cookie.consent';
+  const VERSION = 1;
+
+  const banner = document.getElementById('cookie-banner');
+  const panel = document.getElementById('cookie-panel');
+  const toggleAnalytics = document.querySelector<HTMLInputElement>('[data-cookie-toggle="analytics"]');
+  const toggleMarketing = document.querySelector<HTMLInputElement>('[data-cookie-toggle="marketing"]');
+
+  function read(): Consent | null {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return null;
+      const parsed = JSON.parse(raw) as Consent;
+      if (parsed.v !== VERSION) return null;
+      return parsed;
+    } catch {
+      return null;
+    }
+  }
+
+  function write(consent: Consent) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(consent));
+    window.dispatchEvent(new CustomEvent('cookieconsent', { detail: consent }));
+  }
+
+  function showBanner() {
+    banner?.classList.remove('hidden');
+  }
+  function hideBanner() {
+    banner?.classList.add('hidden');
+  }
+  function openPanel() {
+    const current = read();
+    if (toggleAnalytics) toggleAnalytics.checked = !!current?.analytics;
+    if (toggleMarketing) toggleMarketing.checked = !!current?.marketing;
+    panel?.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+  function closePanel() {
+    panel?.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  function acceptAll() {
+    write({ necessary: true, analytics: true, marketing: true, ts: Date.now(), v: VERSION });
+    closePanel();
+    hideBanner();
+  }
+  function rejectAll() {
+    write({ necessary: true, analytics: false, marketing: false, ts: Date.now(), v: VERSION });
+    closePanel();
+    hideBanner();
+  }
+  function save() {
+    write({
+      necessary: true,
+      analytics: !!toggleAnalytics?.checked,
+      marketing: !!toggleMarketing?.checked,
+      ts: Date.now(),
+      v: VERSION,
+    });
+    closePanel();
+    hideBanner();
+  }
+
+  document.querySelectorAll('[data-cookie-action]').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      const action = (e.currentTarget as HTMLElement).getAttribute('data-cookie-action');
+      switch (action) {
+        case 'accept-all': acceptAll(); break;
+        case 'reject-all': rejectAll(); break;
+        case 'open-panel': openPanel(); break;
+        case 'close-panel': closePanel(); break;
+        case 'save': save(); break;
+      }
+    });
+  });
+
+  // Open preferences from anywhere via [data-cookie-settings]
+  document.querySelectorAll('[data-cookie-settings]').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      openPanel();
+    });
+  });
+
+  // Escape closes the panel
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !panel?.classList.contains('hidden')) closePanel();
+  });
+
+  // Initial: show banner if no decision has been stored
+  const stored = read();
+  if (!stored) {
+    showBanner();
+  } else {
+    // Re-emit so any late-loading scripts can sync
+    window.dispatchEvent(new CustomEvent('cookieconsent', { detail: stored }));
+  }
+
+  // Expose a tiny global to query consent
+  (window as unknown as { igaCookieConsent: () => Consent | null }).igaCookieConsent = read;
+</script>

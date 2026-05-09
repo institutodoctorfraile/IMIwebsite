@@ -885,6 +885,36 @@ export const ru: TranslationKeys = {
     cookies: 'Политика cookies',
     copyright: '© {year} Институт доктора Рафаэля Фрайле Перес-Куадрадо. Все права защищены.',
     whatsappNote: 'Есть быстрый вопрос? Напишите нам в WhatsApp, и мы вас направим.',
+    cookieSettings: 'Настройки cookies',
+  },
+
+  // Cookie consent
+  cookies: {
+    title: 'Ваша приватность важна',
+    description: 'Мы используем собственные и сторонние cookies, чтобы сайт работал, для измерения использования и улучшения опыта. Вы можете принять все, отклонить или настроить. Необходимые cookies всегда активны.',
+    moreInfo: 'Подробнее',
+    acceptAll: 'Принять все',
+    rejectAll: 'Отклонить все',
+    customize: 'Настроить',
+    save: 'Сохранить настройки',
+    panelTitle: 'Настройки cookies',
+    panelDescription: 'Включайте или отключайте категории cookies. Изменения применяются после сохранения.',
+    close: 'Закрыть',
+    categories: {
+      necessary: {
+        title: 'Необходимые',
+        description: 'Обязательны для работы сайта. Их нельзя отключить.',
+        always: 'Всегда активны',
+      },
+      analytics: {
+        title: 'Аналитические',
+        description: 'Позволяют измерять использование сайта в совокупности (Google Analytics).',
+      },
+      marketing: {
+        title: 'Маркетинговые',
+        description: 'Служат для измерения кампаний и атрибуции (Meta Pixel).',
+      },
+    },
   },
 
   // Treatment: Фракционный лазер CO2

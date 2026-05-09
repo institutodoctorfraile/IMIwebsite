@@ -9,6 +9,7 @@ import rafaelPortrait from '../assets/images/Rafael_1plano.jpg';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
+import CookieBanner from '../components/CookieBanner.astro';
 import '../styles/global.css';
 import { 
   type Lang, 
@@ -197,6 +198,9 @@ const allStructuredData = structuredData
 
     <!-- WhatsApp floating button -->
     <WhatsAppButton lang={lang} />
+
+    <!-- Cookie consent banner -->
+    <CookieBanner lang={lang} />
 
     <!-- Scripts slot for page-specific scripts -->
     <slot name="scripts" />
