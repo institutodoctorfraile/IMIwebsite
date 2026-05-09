@@ -5,8 +5,9 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  // TODO: Replace with production URL
-  site: 'https://institutoginecologicoalicante.com',
+  // TEMPORAL: usando dominio de Vercel hasta conectar el dominio definitivo.
+  // Cambiar a 'https://institutoginecologicoalicante.com' cuando el DNS apunte a Vercel.
+  site: 'https://im-iwebsite.vercel.app',
   
   integrations: [
     tailwind(),
