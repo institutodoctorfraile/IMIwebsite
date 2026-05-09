@@ -890,7 +890,7 @@ export const es = {
   cookies: {
     title: 'Tu privacidad importa',
     description: 'Usamos cookies propias y de terceros para que el sitio funcione, medir su uso y mejorar la experiencia. Puedes aceptar todas, rechazarlas o configurarlas. Las necesarias siempre están activas.',
-    moreInfo: 'Más información',
+    moreInfo: 'Ver política de cookies',
     acceptAll: 'Aceptar todo',
     rejectAll: 'Rechazar todo',
     customize: 'Configurar',

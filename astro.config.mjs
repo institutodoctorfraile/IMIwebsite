@@ -5,9 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  // TEMPORAL: usando dominio de Vercel hasta conectar el dominio definitivo.
-  // Cambiar a 'https://institutoginecologicoalicante.com' cuando el DNS apunte a Vercel.
-  site: 'https://im-iwebsite.vercel.app',
+  site: 'https://www.institutorafaelfraile.com',
   
   integrations: [
     tailwind(),

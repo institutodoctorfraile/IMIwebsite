@@ -892,7 +892,7 @@ export const en: TranslationKeys = {
   cookies: {
     title: 'Your privacy matters',
     description: 'We use first and third-party cookies to make the site work, measure its usage and improve your experience. You can accept all, reject all or customize. Necessary cookies are always on.',
-    moreInfo: 'More info',
+    moreInfo: 'View cookie policy',
     acceptAll: 'Accept all',
     rejectAll: 'Reject all',
     customize: 'Customize',

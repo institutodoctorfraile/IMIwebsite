@@ -9,7 +9,7 @@
 export const SITE = {
   name: 'Instituto Dr. Rafael Fraile Pérez-Cuadrado',
   shortName: 'IGA',
-  url: 'https://institutoginecologicoalicante.com',
+  url: 'https://www.institutorafaelfraile.com',
 
   contact: {
     phone: '+34965248558',
