@@ -281,10 +281,16 @@ const c = t.cookies;
     if (e.key === 'Escape' && !panel?.classList.contains('hidden')) closePanel();
   });
 
-  // Initial: show banner if no decision has been stored
+  // Initial: show banner if no decision has been stored.
+  // Defer rendering so it doesn't compete with the hero image for LCP.
   const stored = read();
   if (!stored) {
-    showBanner();
+    const reveal = () => showBanner();
+    if ('requestIdleCallback' in window) {
+      (window as any).requestIdleCallback(reveal, { timeout: 1500 });
+    } else {
+      setTimeout(reveal, 800);
+    }
   } else {
     // Re-emit so any late-loading scripts can sync
     window.dispatchEvent(new CustomEvent('cookieconsent', { detail: stored }));

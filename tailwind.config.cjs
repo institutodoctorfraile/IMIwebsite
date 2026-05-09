@@ -35,7 +35,7 @@ module.exports = {
         border: '#E5E7EB',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['Inter Variable', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
       },
       fontSize: {
         // Custom scale for better hierarchy

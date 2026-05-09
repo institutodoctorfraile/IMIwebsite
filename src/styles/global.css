@@ -6,9 +6,9 @@
  */
 
 /* ==========================================
-   Font Import - Inter via Google Fonts
+   Font Import - Inter (self-hosted via @fontsource-variable)
    ========================================== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import '@fontsource-variable/inter';
 
 /* ==========================================
    CSS Custom Properties (Design Tokens)
@@ -35,7 +35,7 @@
   --color-error: #EF4444;
   
   /* Typography */
-  --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family: 'Inter Variable', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   
   /* Spacing */
   --space-xs: 0.25rem;
