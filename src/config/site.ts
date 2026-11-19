@@ -12,15 +12,15 @@ export const SITE = {
   url: 'https://www.institutorafaelfraile.com',
 
   contact: {
-    phone: '+34965248558',
-    phoneDisplay: '+34 965 248 558',
+    phone: '+34965050413',
+    phoneDisplay: '+34 965 05 04 13',
     email: 'info@institutomaternoinfantil.es',
     whatsapp: '34652582768',
     whatsappDisplay: '+34 652 582 768',
   },
 
   address: {
-    streetAddress: 'Avda. Denia, 103',
+    streetAddress: 'Sector APA, 9',
     addressLocality: 'Alicante',
     addressRegion: 'Comunidad Valenciana',
     postalCode: '03015',

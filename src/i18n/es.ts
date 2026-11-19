@@ -722,7 +722,7 @@ export const es = {
     location: {
       eyebrow: 'Ubicación',
       title: 'Ubicación y horarios',
-      address: 'HLA Vistahermosa — Avda. Denia, 103 — 03015 Alicante',
+      address: 'Hospital IMED Alicante — Sector APA, 9 — 03015 Alicante',
       hoursNote: 'Atendemos con cita previa. Consulta disponibilidad por teléfono o WhatsApp.',
     },
 
@@ -853,8 +853,8 @@ export const es = {
 
     contact: {
       title: 'Información de contacto',
-      address: 'HLA Vistahermosa - Avda. Denia, 103 - 03015 Alicante',
-      phone: '+34 965 248 558',
+      address: 'Hospital IMED Alicante - Sector APA, 9 - 03015 Alicante',
+      phone: '+34 965 05 04 13',
       whatsapp: '+34 652 582 768',
       email: 'info@institutomaternoinfantil.es',
       hours: 'Lunes a Viernes: 9:00 - 20:00',
@@ -864,9 +864,9 @@ export const es = {
 
   // Contact info (global)
   contact: {
-    phone: '+34 965 248 558',
+    phone: '+34 965 05 04 13',
     whatsapp: '+34 652 582 768',
-    address: 'HLA Vistahermosa - Avda. Denia, 103 - 03015 Alicante',
+    address: 'Hospital IMED Alicante - Sector APA, 9 - 03015 Alicante',
     email: 'info@institutomaternoinfantil.es',
   },
 

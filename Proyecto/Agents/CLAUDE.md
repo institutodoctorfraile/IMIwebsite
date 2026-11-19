@@ -1,7 +1,7 @@
 # Instituto Dr. Rafael Fraile Perez-Cuadrado - Web Project Agent
 
 ## Proyecto
-Web profesional del Instituto Dr. Rafael Fraile Perez-Cuadrado, especializado en ginecologia, obstetricia y ginecologia regenerativa. Ubicado en HLA Vistahermosa, Alicante.
+Web profesional del Instituto Dr. Rafael Fraile Perez-Cuadrado, especializado en ginecologia, obstetricia y ginecologia regenerativa. Ubicado en el Hospital IMED Alicante.
 
 ## Stack Tecnologico
 - **Framework**: Astro 5.16 (SSG)
@@ -46,10 +46,10 @@ public/
 ```
 
 ## Datos de Contacto
-- **Telefono principal**: +34 965 248 558
+- **Telefono principal**: +34 965 05 04 13
 - **WhatsApp/Movil**: +34 652 582 768
 - **Email**: info@institutomaternoinfantil.es (pendiente actualizacion)
-- **Ubicacion**: HLA Vistahermosa - Avda. Denia, 103 - 03015 Alicante
+- **Ubicacion**: Hospital IMED Alicante - Sector APA, 9 - 03015 Alicante
 - **Web**: institutoginecologicoalicante.com
 
 ## Paginas del Proyecto (segun contenido)

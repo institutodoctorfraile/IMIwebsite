@@ -17,7 +17,7 @@ Mas de 25 anos acompanando a mujeres en consulta.
 
 - Solicita tu cita
 - Hablar por WhatsApp: +34 652 582 768
-- Llamanos: +34 965 248 558
+- Llamanos: +34 965 05 04 13
 
 ---
 
@@ -188,7 +188,7 @@ Soluciones para mejorar y recuperar tu calidad de vida de forma segura.
 
 - Solicita tu cita
 - Hablar por WhatsApp: +34 652 582 768
-- Llamanos: +34 965 248 558
+- Llamanos: +34 965 05 04 13
 
 ---
 
@@ -287,7 +287,7 @@ Soluciones para mejorar tu calidad de vida.
 
 - Solicita tu cita
 - WhatsApp: +34 652 582 768
-- Llamar: +34 965 248 558
+- Llamar: +34 965 05 04 13
 
 ---
 
@@ -378,7 +378,7 @@ Soluciones para mejorar tu calidad de vida.
 
 - Solicita tu cita
 - WhatsApp: +34 652 582 768
-- Llamar: +34 965 248 558
+- Llamar: +34 965 05 04 13
 
 ---
 
@@ -468,7 +468,7 @@ Soluciones para mejorar tu calidad de vida.
 
 - Solicita tu cita
 - WhatsApp: +34 652 582 768
-- Llamar: +34 965 248 558
+- Llamar: +34 965 05 04 13
 
 ---
 
@@ -557,7 +557,7 @@ Soluciones para mejorar tu calidad de vida.
 
 - Solicita tu cita
 - WhatsApp: +34 652 582 768
-- Llamar: +34 965 248 558
+- Llamar: +34 965 05 04 13
 
 ---
 
@@ -645,7 +645,7 @@ Soluciones para mejorar tu calidad de vida.
 
 - Solicita tu cita
 - WhatsApp: +34 652 582 768
-- Llamar: +34 965 248 558
+- Llamar: +34 965 05 04 13
 
 ---
 
@@ -742,7 +742,7 @@ Soluciones para mejorar tu calidad de vida.
 
 - Solicita tu cita
 - WhatsApp: +34 652 582 768
-- Llamar: +34 965 248 558
+- Llamar: +34 965 05 04 13
 
 ---
 
@@ -834,7 +834,7 @@ Un seguimiento cercano y riguroso para vivir el embarazo con tranquilidad.
 
 - Solicita tu cita
 - WhatsApp: +34 652 582 768
-- Llamar: +34 965 248 558
+- Llamar: +34 965 05 04 13
 
 El control del embarazo es importante tanto al principio como al final. Como pauta general, recomendamos una visita al mes y, en las ultimas 4 semanas, un seguimiento semanal. Ajustamos el plan a tu evolucion y a tu situacion clinica.
 
@@ -924,7 +924,7 @@ Claridad desde la primera visita, con un plan personalizado cuando lo necesitas.
 
 - Solicita tu cita
 - WhatsApp: +34 652 582 768
-- Llamar: +34 965 248 558
+- Llamar: +34 965 05 04 13
 
 ---
 
@@ -1025,7 +1025,7 @@ Elige la opcion que te resulte mas comoda. Nuestro equipo te confirmara dia y ho
 
 | Canal | Contacto |
 |-------|----------|
-| Telefono (principal) | +34 965 248 558 |
+| Telefono (principal) | +34 965 05 04 13 |
 | WhatsApp / movil | +34 652 582 768 |
 | Formulario web | Deja tus datos y el motivo; te llamamos para concretar |
 | Email | info@institutomaternoinfantil.es *(pendiente de actualizacion)* |
@@ -1098,12 +1098,12 @@ Canales recomendados: Telefono · WhatsApp
 
 ## Ubicacion y horarios
 
-**HLA Vistahermosa**
-Avda. Denia, 103 — 03015 Alicante
+**Hospital IMED Alicante**
+Sector APA, 9 — 03015 Alicante
 
 | Contacto | |
 |----------|---|
-| Telefono | +34 965 248 558 |
+| Telefono | +34 965 05 04 13 |
 | WhatsApp / movil | +34 652 582 768 |
 | Email | info@institutomaternoinfantil.es *(pendiente de actualizacion)* |
 
