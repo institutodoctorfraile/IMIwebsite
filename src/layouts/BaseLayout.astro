@@ -8,7 +8,6 @@ import { getImage } from 'astro:assets';
 import rafaelPortrait from '../assets/images/Rafael_1plano.jpg';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import WhatsAppButton from '../components/WhatsAppButton.astro';
 import CookieBanner from '../components/CookieBanner.astro';
 import Analytics from '@vercel/analytics/astro';
 import { SITE } from '../config/site';
@@ -186,9 +185,6 @@ const allStructuredData = structuredData
     
     <!-- Footer -->
     <Footer lang={lang} currentPath={currentPath} />
-
-    <!-- WhatsApp floating button -->
-    <WhatsAppButton lang={lang} />
 
     <!-- Cookie consent banner -->
     <CookieBanner lang={lang} />
